@@ -1,0 +1,31 @@
+{
+  "name": "india-temple-portal-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend API for India Temple Heritage & Pilgrimage Information Portal",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "db:seed:mongo": "node src/db/seed-mongo.js",
+    "db:seed:postgres": "node src/db/seed-postgres.js"
+  },
+  "keywords": [
+    "temples",
+    "pilgrimage",
+    "india",
+    "heritage",
+    "tourism"
+  ],
+  "author": "India Temple Heritage Portal Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.12.0",
+    "pg": "^8.23.1"
+  }
+}

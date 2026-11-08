@@ -1,0 +1,27 @@
+{
+  "name": "india-temple-heritage-portal",
+  "version": "1.0.0",
+  "description": "Centralized digital repository of authentic temple heritage, rituals, darshan timings, and pilgrimage circuits across India",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "build:client": "npm run build --prefix client",
+    "start": "node server/src/index.js",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "db:seed:mongo": "npm run db:seed:mongo --prefix server",
+    "db:seed:postgres": "npm run db:seed:postgres --prefix server"
+  },
+  "keywords": [
+    "india-temples",
+    "pilgrimage-portal",
+    "cultural-heritage",
+    "incredible-india",
+    "darshan-timings"
+  ],
+  "author": "Bharat Teerth Heritage Team",
+  "license": "MIT"
+}
+
