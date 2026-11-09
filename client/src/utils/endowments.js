@@ -203,3 +203,4 @@ export function getTempleAuthorityInfo(temple) {
       : (stateEndowment?.helpline || '+91-1800-425-TEERTH')
   };
 }
+
