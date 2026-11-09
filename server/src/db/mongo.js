@@ -171,9 +171,10 @@ export const mongoAdapter = {
   },
 
   async updateTemple(id, updates) {
+    const { _id, __v, ...safeUpdates } = updates || {};
     return await Temple.findOneAndUpdate(
       { $or: [{ id }, { slug: id }] },
-      { $set: updates },
+      { $set: safeUpdates },
       { new: true }
     ).lean();
   },

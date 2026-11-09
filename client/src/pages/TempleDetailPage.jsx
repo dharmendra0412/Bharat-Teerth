@@ -605,7 +605,7 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
                 </div>
                 {temple.contactInfo.website && (
                   <a
-                    href={temple.contactInfo.website}
+                    href={temple.contactInfo.website.startsWith('http') ? temple.contactInfo.website : `https://${temple.contactInfo.website}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-1 text-vedic-gold hover:underline"
