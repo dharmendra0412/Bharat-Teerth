@@ -5,6 +5,7 @@
   "description": "Backend API for India Temple Heritage & Pilgrimage Information Portal",
   "main": "src/index.js",
   "scripts": {
+    "build": "echo 'Server ready'",
     "start": "node src/index.js",
     "dev": "node --watch src/index.js",
     "db:seed:mongo": "node src/db/seed-mongo.js",
