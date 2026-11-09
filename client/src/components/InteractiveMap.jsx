@@ -5,6 +5,16 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { MapPin, Navigation, ExternalLink, Filter, Layers, Search, Sparkles } from 'lucide-react';
 
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export default function InteractiveMap({ temples = [], onSelectTemple, selectedCircuit = '' }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -193,19 +203,19 @@ export default function InteractiveMap({ temples = [], onSelectTemple, selectedC
       const popupHtml = `
         <div style="font-family: 'Inter', sans-serif; min-width: 220px; max-width: 260px;">
           <div style="position: relative; height: 110px; border-radius: 8px; overflow: hidden; margin-bottom: 8px; background-color: #2A0808;">
-            <img src="${temple.imageUrl}" alt="${temple.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='/images/temples/somnath-jyotirlinga.jpg'" />
+            <img src="${encodeURI(temple.imageUrl || '')}" alt="${escapeHtml(temple.name)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='/images/temples/somnath-jyotirlinga.jpg'" />
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 4px 8px; color: #fff; font-size: 10px; font-weight: 600;">
-              ${temple.location.city}, ${temple.location.state}
+              ${escapeHtml(temple.location?.city)}, ${escapeHtml(temple.location?.state)}
             </div>
           </div>
           <h4 style="font-family: 'Cinzel', serif; font-weight: 700; font-size: 13px; margin: 0 0 4px 0; color: #800020; line-height: 1.3;">
-            ${temple.name}
+            ${escapeHtml(temple.name)}
           </h4>
           <p style="font-size: 11px; color: #666; margin: 0 0 6px 0;">
-            <strong>Deity:</strong> ${temple.deity.primary}
+            <strong>Deity:</strong> ${escapeHtml(temple.deity?.primary)}
           </p>
           <div style="background: #FDFBF7; border: 1px solid #E8DFD8; border-radius: 6px; padding: 4px 8px; font-size: 10px; margin-bottom: 8px; color: #555;">
-            🕒 <strong>Darshan:</strong> ${temple.darshanTimings.generalTimings.substring(0, 36)}...
+            🕒 <strong>Darshan:</strong> ${escapeHtml(temple.darshanTimings?.generalTimings?.substring(0, 36) || 'Temple Schedule Available')}...
           </div>
           <div style="display: flex; gap: 6px;">
             <button 

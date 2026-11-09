@@ -21,8 +21,19 @@ router.get('/', async (req, res) => {
 router.post('/ping', async (req, res) => {
   try {
     const { sessionId, deviceType, durationSeconds, page } = req.body || {};
-    if (sessionId) {
-      await db.recordSessionPing({ sessionId, deviceType, durationSeconds, page });
+    if (sessionId && typeof sessionId === 'string') {
+      const cleanSessionId = sessionId.trim().substring(0, 64);
+      const cleanDuration = Math.min(86400, Math.max(0, Math.round(Number(durationSeconds) || 0)));
+      const allowedDevices = ['desktop', 'mobile', 'tablet'];
+      const cleanDevice = allowedDevices.includes(deviceType) ? deviceType : 'desktop';
+      const cleanPage = typeof page === 'string' ? page.trim().substring(0, 120) : '/';
+
+      await db.recordSessionPing({
+        sessionId: cleanSessionId,
+        deviceType: cleanDevice,
+        durationSeconds: cleanDuration,
+        page: cleanPage
+      });
     }
     res.json({ success: true });
   } catch (err) {

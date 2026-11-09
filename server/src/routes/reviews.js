@@ -17,10 +17,10 @@ router.get('/temple/:templeId', async (req, res) => {
   }
 });
 
-// POST /api/reviews - Pilgrim submits a tip/experience
+// POST /api/reviews - Pilgrim submits a tip/experience (subject to admin verification)
 router.post('/', async (req, res) => {
   try {
-    const { templeId, author, location, content, rating } = req.body;
+    const { templeId, author, location, content, rating } = req.body || {};
     if (!templeId || !author || !content) {
       return res.status(400).json({
         success: false,
@@ -28,18 +28,24 @@ router.post('/', async (req, res) => {
       });
     }
 
+    // Sanitize and trim strings to prevent stored injection
+    const cleanAuthor = String(author).trim().substring(0, 80);
+    const cleanLocation = String(location || 'India').trim().substring(0, 100);
+    const cleanContent = String(content).trim().substring(0, 1000);
+    const cleanRating = Math.min(5, Math.max(1, Number(rating) || 5));
+
     const newTip = await db.addReview({
-      templeId,
-      author,
-      location: location || 'India',
-      content,
-      rating: rating ? Number(rating) : 5,
-      status: 'approved'
+      templeId: String(templeId).trim(),
+      author: cleanAuthor,
+      location: cleanLocation,
+      content: cleanContent,
+      rating: cleanRating,
+      status: 'pending' // Enforce manual admin verification constraint
     });
 
     res.status(201).json({
       success: true,
-      message: 'Pilgrim tip registered and published to the national heritage portal.',
+      message: 'Pilgrim tip submitted successfully. It will appear on the portal following administrative review.',
       data: newTip
     });
   } catch (err) {

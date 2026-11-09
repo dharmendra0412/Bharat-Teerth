@@ -7,8 +7,32 @@ import { authenticateAdmin } from '../middleware/auth.js';
 
 const router = express.Router();
 
+// In-Memory Brute-Force Rate Limiter (Max 10 login attempts per 15 minutes per IP)
+const loginAttempts = new Map();
+
+function loginRateLimiter(req, res, next) {
+  const ip = req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+  const now = Date.now();
+  const windowMs = 15 * 60 * 1000;
+  const maxAttempts = 10;
+
+  const userAttempts = loginAttempts.get(ip) || [];
+  const recentAttempts = userAttempts.filter(timestamp => now - timestamp < windowMs);
+
+  if (recentAttempts.length >= maxAttempts) {
+    return res.status(429).json({
+      success: false,
+      message: 'Too many administrative login attempts. Please wait 15 minutes before trying again.'
+    });
+  }
+
+  recentAttempts.push(now);
+  loginAttempts.set(ip, recentAttempts);
+  next();
+}
+
 // POST /api/auth/login
-router.post('/login', async (req, res) => {
+router.post('/login', loginRateLimiter, async (req, res) => {
   try {
     const { username, password } = req.body;
     if (!username || !password) {

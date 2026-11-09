@@ -73,51 +73,66 @@ export async function seedMongoIfEmpty() {
   }
 }
 
+function escapeRegex(text) {
+  if (typeof text !== 'string') return '';
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
+}
+
 export const mongoAdapter = {
   async getTemples(filters = {}) {
     const query = {};
 
-    if (filters.search) {
-      const q = filters.search.trim();
-      query.$or = [
-        { name: { $regex: q, $options: 'i' } },
-        { localName: { $regex: q, $options: 'i' } },
-        { 'location.state': { $regex: q, $options: 'i' } },
-        { 'location.city': { $regex: q, $options: 'i' } },
-        { 'deity.primary': { $regex: q, $options: 'i' } },
-        { 'history.architecturalStyle': { $regex: q, $options: 'i' } }
-      ];
+    if (filters.search && typeof filters.search === 'string') {
+      const q = escapeRegex(filters.search);
+      if (q) {
+        query.$or = [
+          { name: { $regex: q, $options: 'i' } },
+          { localName: { $regex: q, $options: 'i' } },
+          { 'location.state': { $regex: q, $options: 'i' } },
+          { 'location.city': { $regex: q, $options: 'i' } },
+          { 'deity.primary': { $regex: q, $options: 'i' } },
+          { 'history.architecturalStyle': { $regex: q, $options: 'i' } }
+        ];
+      }
     }
 
-    if (filters.state) {
-      query['location.state'] = { $regex: `^${filters.state.trim()}$`, $options: 'i' };
+    if (filters.state && typeof filters.state === 'string') {
+      const s = escapeRegex(filters.state);
+      if (s) query['location.state'] = { $regex: `^${s}$`, $options: 'i' };
     }
 
-    if (filters.region) {
-      query['location.region'] = { $regex: `^${filters.region.trim()}$`, $options: 'i' };
+    if (filters.region && typeof filters.region === 'string') {
+      const r = escapeRegex(filters.region);
+      if (r) query['location.region'] = { $regex: `^${r}$`, $options: 'i' };
     }
 
-    if (filters.city) {
-      query['location.city'] = { $regex: filters.city.trim(), $options: 'i' };
+    if (filters.city && typeof filters.city === 'string') {
+      const c = escapeRegex(filters.city);
+      if (c) query['location.city'] = { $regex: c, $options: 'i' };
     }
 
-    if (filters.deity) {
-      query['deity.primary'] = { $regex: filters.deity.trim(), $options: 'i' };
+    if (filters.deity && typeof filters.deity === 'string') {
+      const d = escapeRegex(filters.deity);
+      if (d) query['deity.primary'] = { $regex: d, $options: 'i' };
     }
 
-    if (filters.circuit) {
+    if (filters.circuit && typeof filters.circuit === 'string') {
       query.circuits = filters.circuit;
     }
 
-    if (filters.theme) {
-      query.$or = [
-        { themes: { $regex: filters.theme, $options: 'i' } },
-        { circuits: { $regex: filters.theme, $options: 'i' } }
-      ];
+    if (filters.theme && typeof filters.theme === 'string') {
+      const th = escapeRegex(filters.theme);
+      if (th) {
+        query.$or = [
+          { themes: { $regex: th, $options: 'i' } },
+          { circuits: { $regex: th, $options: 'i' } }
+        ];
+      }
     }
 
-    if (filters.architecture) {
-      query['history.architecturalStyle'] = { $regex: filters.architecture.trim(), $options: 'i' };
+    if (filters.architecture && typeof filters.architecture === 'string') {
+      const arch = escapeRegex(filters.architecture);
+      if (arch) query['history.architecturalStyle'] = { $regex: arch, $options: 'i' };
     }
 
     if (filters.featured === 'true' || filters.featured === true) {
