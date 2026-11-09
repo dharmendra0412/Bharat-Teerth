@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { api } from '../services/api';
+import { getTempleAuthorityInfo } from '../utils/endowments';
 import { usePilgrimage } from '../context/PilgrimageContext';
 import { useLanguage } from '../context/LanguageContext';
 import { 
@@ -46,6 +47,8 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
 
   const { isPlanned, addToPlan, removeFromPlan } = usePilgrimage();
   const { t, language } = useLanguage();
+
+  const authorityInfo = useMemo(() => getTempleAuthorityInfo(temple), [temple]);
 
   useEffect(() => {
     async function loadDetails() {
@@ -596,26 +599,48 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
               </div>
             </div>
 
-            {/* Official Contact Info */}
-            {temple.contactInfo && (
-              <div className="pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-stone-900 text-stone-300 text-xs">
-                <div className="flex items-center space-x-2">
-                  <PhoneCall className="w-4 h-4 text-vedic-gold" />
-                  <span>Official Helpline: <strong className="text-white font-mono">{temple.contactInfo.helpline}</strong></span>
-                </div>
-                {temple.contactInfo.website && (
+            {/* Official Authority & Trust Information Bar */}
+            <div className="pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl bg-stone-900 text-stone-300 text-xs shadow-inner">
+              <div className="flex items-center space-x-2">
+                <PhoneCall className="w-4 h-4 text-vedic-gold shrink-0" />
+                <span>
+                  Official Helpline:{' '}
+                  <strong className="text-white font-mono">
+                    {authorityInfo?.helpline || temple.contactInfo?.helpline || '+91-1800-425-TEERTH'}
+                  </strong>
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Official Shrine Trust / State Devaswom Portal */}
+                {authorityInfo?.trustWebsite && (
                   <a
-                    href={temple.contactInfo.website.startsWith('http') ? temple.contactInfo.website : `https://${temple.contactInfo.website}`}
+                    href={authorityInfo.trustWebsite.startsWith('http') ? authorityInfo.trustWebsite : `https://${authorityInfo.trustWebsite}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-1 text-vedic-gold hover:underline"
+                    className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-vedic-gold to-amber-400 text-stone-950 font-bold hover:brightness-105 transition-all shadow-sm text-xs"
+                    title={`Visit ${authorityInfo.trustName}`}
                   >
-                    <Globe className="w-3.5 h-3.5" />
+                    <Globe className="w-3.5 h-3.5 text-stone-950" />
                     <span>Official Temple Trust Portal ↗</span>
                   </a>
                 )}
+
+                {/* Wikipedia Cultural Register Link (if present) */}
+                {authorityInfo?.wikipediaUrl && (
+                  <a
+                    href={authorityInfo.wikipediaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg bg-stone-800 text-stone-300 hover:text-white hover:bg-stone-700 transition-colors border border-stone-700 text-[11px]"
+                    title="View Wikipedia Cultural & Architectural Register"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-stone-400" />
+                    <span>Wikipedia Register ↗</span>
+                  </a>
+                )}
               </div>
-            )}
+            </div>
 
           </div>
         </div>
