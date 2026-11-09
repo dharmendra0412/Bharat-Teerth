@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { api } from './services/api';
 import { LanguageProvider } from './context/LanguageContext';
 import { AuthProvider } from './context/AuthContext';
@@ -206,6 +207,7 @@ export default function App() {
           <Footer setActiveTab={handleTabChange} />
 
         </div>
+        <Analytics />
       </PilgrimageProvider>
     </AuthProvider>
   </LanguageProvider>
