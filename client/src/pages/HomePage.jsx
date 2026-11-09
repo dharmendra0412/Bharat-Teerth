@@ -283,81 +283,53 @@ export default function HomePage({
     <div className="space-y-16 pb-16">
       
       {/* ======================================================== */}
-      {/* CINEMATIC HERO SECTION: AMBIENT SHRINES & VEDIC BRANDING */}
+      {/* CONCEPT 1: GRAND ROYAL SANDSTONE & TEMPLE IVORY HERO     */}
       {/* ======================================================== */}
       <section 
-        className="relative overflow-hidden min-h-[720px] lg:min-h-[780px] bg-[#120605] text-white pt-10 pb-20 px-4 sm:px-6 lg:px-8 border-b-4 border-vedic-gold shadow-2xl flex flex-col justify-between"
+        className="relative overflow-hidden bg-gradient-to-b from-[#F5EFE0] via-[#FAF6EC] to-[#FBF8F3] text-stone-900 pt-10 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[#E8DFC8] shadow-sm"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        
-        {/* Full-bleed Ambient Background Slideshow */}
-        <div className="absolute inset-0 z-0">
-          {CINEMATIC_HERO_SHRINES.map((shrine, index) => (
-            <div
-              key={shrine.id}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
-            >
-              <img
-                src={shrine.image}
-                alt={shrine.name}
-                className="w-full h-full object-cover object-center animate-subtle-zoom filter brightness-[0.42] contrast-[1.12]"
-                loading={index === 0 ? "eager" : "lazy"}
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = '/images/temples/somnath-jyotirlinga.jpg';
-                }}
-              />
-            </div>
-          ))}
-
-          {/* Majestic Vedic Dark Gradient Overlays */}
-          <div className="absolute inset-0 z-20 bg-gradient-to-b from-[#1A0B09]/95 via-[#120605]/80 to-[#120605] pointer-events-none" />
-          <div className="absolute inset-0 z-20 bg-radial-gradient pointer-events-none opacity-40 bg-[radial-gradient(circle_at_center,_transparent_0%,_#120605_85%)]" />
-          
-          {/* Subtle Sacred Mandala Background Dot Grid */}
-          <div className="absolute inset-0 z-20 opacity-15 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none" />
-        </div>
+        {/* Subtle Sacred Mandala Background Dot Grid */}
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C89B3C_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
         {/* Top Auspicious Invocation & Live Darshan Ticker */}
-        <div className="relative z-30 max-w-6xl mx-auto w-full space-y-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-vedic-gold/25 pb-3">
+        <div className="relative z-10 max-w-6xl mx-auto w-full space-y-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-[#E8DFC8] pb-3">
             
             {/* Sanskrit Shloka & Official Verified Tag */}
-            <div className="flex items-center space-x-2 text-vedic-goldLight text-xs tracking-wider font-semibold text-center sm:text-left">
-              <span className="text-vedic-gold font-serif text-base animate-pulse">ॐ</span>
-              <span className="font-serif italic text-white/90">असतो मा सद्गमय तमसो मा ज्योतिर्गमय</span>
-              <span className="hidden md:inline text-vedic-gold/60">•</span>
-              <span className="hidden md:inline text-vedic-gold text-[11px] font-sans font-bold">
+            <div className="flex items-center space-x-2 text-[#781822] text-xs tracking-wider font-semibold text-center sm:text-left">
+              <span className="text-[#C89B3C] font-serif text-base">ॐ</span>
+              <span className="font-serif italic text-stone-800">असतो मा सद्गमय तमसो मा ज्योतिर्गमय</span>
+              <span className="hidden md:inline text-stone-400">•</span>
+              <span className="hidden md:inline text-[#781822] text-[11px] font-sans font-bold">
                 ASI & State Devasthanams Verified
               </span>
             </div>
 
             {/* Live Pan-India Darshan Status Pill */}
-            <div className="flex items-center space-x-2 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-vedic-gold/30 shadow-inner">
+            <div className="flex items-center space-x-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#DECFA9] shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="text-sm">{darshanPhase.icon}</span>
-              <span className="text-xs font-semibold text-vedic-goldLight">
+              <span className="text-xs font-bold text-[#781822]">
                 {darshanPhase.phase}
               </span>
-              <span className="text-[11px] font-mono text-white/70">
+              <span className="text-[11px] font-mono text-stone-500">
                 (IST {darshanPhase.istTime})
               </span>
               <button
                 onClick={handleRingBell}
                 title="Ring the sacred temple bell"
-                className={`ml-1 flex items-center space-x-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase transition-all border ${
+                className={`ml-1 flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase transition-all border ${
                   bellRinging
-                    ? 'bg-vedic-gold text-vedic-maroon border-white scale-105 shadow-md'
-                    : 'bg-white/10 hover:bg-white/20 text-vedic-gold border-white/20'
+                    ? 'bg-amber-400 text-[#781822] border-white scale-105 shadow-md'
+                    : 'bg-[#781822] text-amber-100 hover:bg-[#5A0D15] border-[#781822]'
                 }`}
               >
-                <Bell className={`w-3 h-3 ${bellRinging ? 'animate-bounce text-vedic-maroon' : 'text-vedic-gold'}`} />
+                <Bell className={`w-3 h-3 ${bellRinging ? 'animate-bounce text-[#781822]' : 'text-amber-300'}`} />
                 <span className="hidden lg:inline">{bellRinging ? 'Ringing...' : 'Ring Bell'}</span>
               </button>
             </div>
@@ -366,34 +338,34 @@ export default function HomePage({
         </div>
 
         {/* Central Hero Branding & Dynamic Spotlight */}
-        <div className="relative z-30 max-w-6xl mx-auto w-full my-auto py-8">
+        <div className="relative z-10 max-w-6xl mx-auto w-full my-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left 7 Columns: Majestic Title, Mission & Search Box */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               
               <div className="space-y-3">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-vedic-gold/15 border border-vedic-gold/40 text-vedic-goldLight text-xs tracking-wider font-semibold">
-                  <Sparkles className="w-3.5 h-3.5 text-vedic-gold" />
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#781822]/10 border border-[#781822]/20 text-[#781822] text-xs tracking-wider font-bold">
+                  <Sparkles className="w-3.5 h-3.5 text-[#C89B3C]" />
                   <span>National Digital Heritage Repository</span>
-                  <span className="text-white/60">•</span>
-                  <span className="text-white/90">972 Temples Across 35 States & UTs</span>
+                  <span className="text-stone-400">•</span>
+                  <span className="text-stone-700">972 Temples Across 35 States & UTs</span>
                 </div>
 
-                <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
-                  {t('heroTitle')} <br />
-                  <span className="bg-gradient-to-r from-vedic-gold via-amber-200 to-vedic-saffron text-transparent bg-clip-text drop-shadow-[0_4px_16px_rgba(212,175,55,0.35)]">
-                    {t('portalName')}
+                <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-[#781822] tracking-tight leading-[1.12]">
+                  DISCOVER THE SACRED SHRINES <br />
+                  <span className="text-[#C27D00] font-playfair italic font-bold">
+                    of Timeless Bharat
                   </span>
                 </h1>
 
-                <p className="text-stone-300 text-xs sm:text-sm lg:text-base font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p className="text-stone-600 text-xs sm:text-sm lg:text-base font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
                   {t('heroSubtitle')}
                 </p>
               </div>
 
-              {/* Glassmorphic Search & Discovery Box */}
-              <div className="bg-[#1A0B09]/85 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-2xl border border-vedic-gold/40 text-stone-900 ring-1 ring-vedic-gold/20">
+              {/* Floating Warm Glass Search & Discovery Box */}
+              <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-xl border border-[#DECFA9] text-stone-900 ring-1 ring-[#DECFA9]/50">
                 <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
                   
                   {/* Search text */}
@@ -404,7 +376,7 @@ export default function HomePage({
                       placeholder={t('searchPlaceholder')}
                       value={searchInput}
                       onChange={(e) => setSearchInput(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 bg-stone-50/95 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white"
+                      className="w-full pl-10 pr-4 py-2.5 bg-[#FAF7F0] border border-[#E2D7C0] rounded-xl text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#781822] focus:bg-white"
                     />
                   </div>
 
@@ -413,7 +385,7 @@ export default function HomePage({
                     <select
                       value={selectedState}
                       onChange={(e) => setSelectedState(e.target.value)}
-                      className="w-full px-3 py-2.5 bg-stone-50/95 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white truncate"
+                      className="w-full px-3 py-2.5 bg-[#FAF7F0] border border-[#E2D7C0] rounded-xl text-xs sm:text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#781822] focus:bg-white truncate"
                     >
                       <option value="">All States ({allStates.length || 35})</option>
                       {(allStates.length > 0 ? allStates : POPULAR_STATES).map(s => (
@@ -427,7 +399,7 @@ export default function HomePage({
                     <select
                       value={selectedDeity}
                       onChange={(e) => setSelectedDeity(e.target.value)}
-                      className="w-full px-2.5 py-2.5 bg-stone-50/95 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white truncate"
+                      className="w-full px-2.5 py-2.5 bg-[#FAF7F0] border border-[#E2D7C0] rounded-xl text-xs sm:text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-[#781822] focus:bg-white truncate"
                     >
                       <option value="">Deities ({allDeities.length || 118})</option>
                       {allDeities.map(d => (
@@ -440,7 +412,7 @@ export default function HomePage({
                   <div className="sm:col-span-2">
                     <button
                       type="submit"
-                      className="w-full h-full py-2.5 px-3 bg-gradient-to-r from-vedic-saffron via-amber-600 to-vedic-maroon hover:from-amber-600 hover:to-vedic-maroon text-white font-bold rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-vedic-saffron/30 flex items-center justify-center space-x-1 group"
+                      className="w-full h-full py-2.5 px-3 bg-gradient-to-r from-[#D35400] to-[#781822] hover:from-[#E65100] hover:to-[#5A0D15] text-white font-bold rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-[#781822]/20 flex items-center justify-center space-x-1 group"
                     >
                       <span>Search</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -450,9 +422,9 @@ export default function HomePage({
                 </form>
 
                 {/* Quick Sacred Circuit Tags */}
-                <div className="mt-3 pt-3 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-xs text-stone-300">
-                  <span className="font-semibold text-vedic-goldLight text-[11px] mr-1 flex items-center space-x-1">
-                    <Compass className="w-3 h-3 text-vedic-gold" />
+                <div className="mt-3 pt-3 border-t border-[#E8DFC8] flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-xs">
+                  <span className="font-bold text-[#781822] text-[11px] mr-1 flex items-center space-x-1">
+                    <Compass className="w-3 h-3 text-[#D35400]" />
                     <span>Sacred Circuits:</span>
                   </span>
                   {SACRED_CIRCUITS_QUICK.map(circ => (
@@ -460,7 +432,7 @@ export default function HomePage({
                       key={circ.name}
                       type="button"
                       onClick={() => handleCircuitQuickTag(circ.filter)}
-                      className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon border border-white/15 hover:border-vedic-gold transition-all text-[11px] font-medium text-white flex items-center space-x-1 shadow-sm"
+                      className="px-2.5 py-1 rounded-full bg-white hover:bg-[#781822] hover:text-[#FDF3D6] border border-[#DECFA9] transition-all text-[11px] font-semibold text-stone-700 flex items-center space-x-1 shadow-sm"
                     >
                       <span>{circ.icon}</span>
                       <span>{circ.name}</span>
@@ -470,14 +442,14 @@ export default function HomePage({
                 </div>
 
                 {/* Popular State Quick Filters */}
-                <div className="mt-2 flex flex-wrap items-center justify-center lg:justify-start gap-1 text-[11px] text-stone-400">
-                  <span className="text-vedic-gold/80 font-medium mr-1">Popular States:</span>
+                <div className="mt-2 flex flex-wrap items-center justify-center lg:justify-start gap-1 text-[11px] text-stone-500">
+                  <span className="text-stone-700 font-semibold mr-1">Popular States:</span>
                   {(allStates.length > 0 ? allStates.slice(0, 8) : POPULAR_STATES.slice(0, 8)).map(st => (
                     <button
                       key={st}
                       type="button"
                       onClick={() => handleStateChipClick(st)}
-                      className="px-2 py-0.5 rounded text-[10px] text-stone-300 hover:text-vedic-gold hover:underline transition-colors"
+                      className="px-2 py-0.5 rounded text-[10px] text-stone-600 hover:text-[#781822] hover:bg-[#F2EADB] transition-colors"
                     >
                       {st}
                     </button>
@@ -488,18 +460,18 @@ export default function HomePage({
 
             </div>
 
-            {/* Right 5 Columns: Interactive Cinematic Spotlight Shrine Showcase */}
+            {/* Right 5 Columns: Interactive Spotlight Shrine Showcase */}
             <div className="lg:col-span-5">
-              <div className="relative bg-gradient-to-b from-[#1A0B09]/90 to-[#120605]/95 rounded-2xl border border-vedic-gold/40 p-5 shadow-2xl backdrop-blur-xl space-y-4 ring-1 ring-vedic-gold/30">
+              <div className="relative bg-white/95 rounded-2xl border border-[#DECFA9] p-5 shadow-xl backdrop-blur-xl space-y-4 ring-1 ring-[#DECFA9]/50">
                 
                 {/* Spotlight Header with Live Badge & Controls */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full bg-vedic-saffron/20 border border-vedic-saffron/40 text-vedic-saffronLight text-[10px] font-bold uppercase tracking-wider">
-                      <Sparkles className="w-3 h-3 text-vedic-gold" />
+                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-[#781822] text-[10px] font-bold uppercase tracking-wider">
+                      <Sparkles className="w-3 h-3 text-[#D35400]" />
                       <span>Heritage Spotlight</span>
                     </span>
-                    <span className="text-[11px] text-vedic-gold font-mono">
+                    <span className="text-[11px] text-[#781822] font-mono font-bold">
                       {String(currentSlide + 1).padStart(2, '0')} / {String(CINEMATIC_HERO_SHRINES.length).padStart(2, '0')}
                     </span>
                   </div>
@@ -508,21 +480,21 @@ export default function HomePage({
                   <div className="flex items-center space-x-1">
                     <button
                       onClick={handlePrevSlide}
-                      className="p-1 rounded-lg bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon text-white transition-colors"
+                      className="p-1 rounded-lg bg-stone-100 hover:bg-[#781822] hover:text-white text-stone-700 transition-colors"
                       title="Previous spotlight shrine"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => setIsPaused(!isPaused)}
-                      className="p-1 rounded-lg bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon text-white transition-colors"
+                      className="p-1 rounded-lg bg-stone-100 hover:bg-[#781822] hover:text-white text-stone-700 transition-colors"
                       title={isPaused ? "Play slideshow" : "Pause slideshow"}
                     >
                       {isPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
                     </button>
                     <button
                       onClick={handleNextSlide}
-                      className="p-1 rounded-lg bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon text-white transition-colors"
+                      className="p-1 rounded-lg bg-stone-100 hover:bg-[#781822] hover:text-white text-stone-700 transition-colors"
                       title="Next spotlight shrine"
                     >
                       <ChevronRight className="w-4 h-4" />
@@ -533,7 +505,7 @@ export default function HomePage({
                 {/* Shrine Preview Image Container */}
                 <div 
                   onClick={() => onSelectTemple(currentShrine.id)}
-                  className="relative h-48 w-full rounded-xl overflow-hidden border border-vedic-gold/30 cursor-pointer group shadow-lg"
+                  className="relative h-48 w-full rounded-xl overflow-hidden border border-[#DECFA9] cursor-pointer group shadow-md"
                 >
                   <img
                     src={currentShrine.image}
@@ -544,11 +516,11 @@ export default function HomePage({
                       e.currentTarget.src = '/images/temples/somnath-jyotirlinga.jpg';
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
                   
                   {/* Overlay Badges */}
                   <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
-                    <span className="px-2 py-0.5 rounded-full bg-vedic-maroon/90 text-vedic-goldLight text-[10px] font-semibold backdrop-blur-sm border border-vedic-gold/40">
+                    <span className="px-2 py-0.5 rounded-full bg-[#781822] text-[#F9E8B2] text-[10px] font-bold shadow-sm">
                       {currentShrine.circuit}
                     </span>
                     <span className="px-2 py-0.5 rounded-full bg-black/70 text-white text-[10px] font-medium backdrop-blur-sm">
@@ -558,14 +530,14 @@ export default function HomePage({
 
                   <div className="absolute bottom-2.5 left-3 right-3 flex items-end justify-between">
                     <div>
-                      <div className="text-[11px] text-vedic-goldLight font-serif italic">
+                      <div className="text-[11px] text-amber-200 font-serif italic">
                         {currentShrine.hindi}
                       </div>
-                      <div className="font-serif font-black text-xl text-white group-hover:text-vedic-goldLight transition-colors">
+                      <div className="font-serif font-black text-xl text-white group-hover:text-amber-200 transition-colors">
                         {currentShrine.name}
                       </div>
                     </div>
-                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-vedic-gold text-vedic-maroon text-xs font-bold shadow group-hover:bg-white transition-colors">
+                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-[#C89B3C] text-stone-900 text-xs font-bold shadow group-hover:bg-white transition-colors">
                       <span>Explore</span>
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                     </span>
@@ -574,17 +546,17 @@ export default function HomePage({
 
                 {/* Shrine Metadata & Tagline */}
                 <div className="space-y-2 text-xs">
-                  <div className="flex items-center justify-between text-stone-300">
-                    <div className="flex items-center space-x-1 text-vedic-goldLight">
-                      <MapPin className="w-3.5 h-3.5 text-vedic-saffron" />
-                      <span className="font-semibold">{currentShrine.state}</span>
+                  <div className="flex items-center justify-between text-stone-600">
+                    <div className="flex items-center space-x-1 text-[#781822]">
+                      <MapPin className="w-3.5 h-3.5 text-[#D35400]" />
+                      <span className="font-bold">{currentShrine.state}</span>
                     </div>
-                    <div className="text-stone-300 font-medium">
-                      Deity: <span className="text-white font-semibold">{currentShrine.deity}</span>
+                    <div className="text-stone-600 font-medium">
+                      Deity: <span className="text-stone-900 font-bold">{currentShrine.deity}</span>
                     </div>
                   </div>
 
-                  <p className="text-stone-300 text-[11px] leading-relaxed line-clamp-2">
+                  <p className="text-stone-600 text-[11px] leading-relaxed line-clamp-2">
                     {currentShrine.tagline}
                   </p>
                 </div>
@@ -592,7 +564,7 @@ export default function HomePage({
                 {/* Direct Action Button */}
                 <button
                   onClick={() => onSelectTemple(currentShrine.id)}
-                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-vedic-gold/20 via-vedic-saffron/30 to-vedic-gold/20 hover:from-vedic-gold hover:to-amber-500 text-vedic-goldLight hover:text-vedic-maroon font-bold text-xs border border-vedic-gold/40 hover:border-white transition-all duration-200 flex items-center justify-center space-x-1.5 shadow"
+                  className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#D35400] to-[#781822] hover:from-[#E65100] hover:to-[#5A0D15] text-white font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-1.5 shadow-md shadow-[#781822]/20"
                 >
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>View Sthala Purana, Timings & Darshan Details</span>
@@ -607,8 +579,8 @@ export default function HomePage({
                       onClick={() => setCurrentSlide(idx)}
                       className={`h-1.5 rounded-full transition-all ${
                         idx === currentSlide
-                          ? 'w-7 bg-vedic-gold shadow-sm shadow-vedic-gold/50'
-                          : 'w-2 bg-white/20 hover:bg-white/40'
+                          ? 'w-7 bg-[#781822] shadow-sm'
+                          : 'w-2 bg-[#DECFA9] hover:bg-[#781822]/50'
                       }`}
                       title={shrine.name}
                     />
@@ -621,118 +593,118 @@ export default function HomePage({
           </div>
         </div>
 
-        {/* Bottom Official Key Performance Indicators (KPIs) Strip */}
-        <div className="relative z-30 pt-6 max-w-6xl mx-auto w-full space-y-3">
-          <div className="flex items-center justify-center space-x-2 text-vedic-goldLight text-xs font-semibold uppercase tracking-wider">
-            <TrendingUp className="w-3.5 h-3.5 text-vedic-gold" />
+        {/* Bottom Key Performance Indicators (KPIs) Strip */}
+        <div className="relative z-10 pt-6 max-w-6xl mx-auto w-full space-y-3">
+          <div className="flex items-center justify-center space-x-2 text-[#781822] text-xs font-bold uppercase tracking-wider">
+            <TrendingUp className="w-3.5 h-3.5 text-[#D35400]" />
             <span>{t('kpiSectionTitle')}</span>
-            <span className="text-stone-500">•</span>
-            <span className="text-stone-300 normal-case font-normal hidden sm:inline">{t('kpiSectionSubtitle')}</span>
+            <span className="text-stone-400">•</span>
+            <span className="text-stone-600 normal-case font-medium hidden sm:inline">{t('kpiSectionSubtitle')}</span>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 text-left">
             
             {/* KPI 1: Number of Temples Listed */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-vedic-gold hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+            <div className="p-3.5 rounded-2xl bg-white/95 border border-[#DECFA9] shadow-sm hover:border-[#C89B3C] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
               <div className="flex items-center justify-between mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-vedic-gold/20 flex items-center justify-center text-vedic-goldLight">
+                <div className="w-7 h-7 rounded-lg bg-amber-100 flex items-center justify-center text-[#781822]">
                   <Layers className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
                   {stats.statesCovered || 35} States & UTs
                 </span>
               </div>
-              <div className="font-serif font-black text-2xl text-white group-hover:text-vedic-goldLight transition-colors">
+              <div className="font-serif font-black text-2xl text-[#781822] group-hover:text-[#D35400] transition-colors">
                 {stats.kpis?.templesListed?.displayValue || stats.totalTemples || 972}
               </div>
-              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+              <div className="text-xs font-bold text-stone-800 mt-0.5 leading-snug">
                 {t('kpiTemplesListed')}
               </div>
-              <div className="text-[10px] text-stone-400 mt-0.5 flex items-center gap-1">
+              <div className="text-[10px] text-stone-500 mt-0.5 flex items-center gap-1">
                 <span>{t('kpiTemplesListedSub')}</span>
               </div>
             </div>
 
             {/* KPI 2: Monthly Active Users */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-sky-400 hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+            <div className="p-3.5 rounded-2xl bg-white/95 border border-[#DECFA9] shadow-sm hover:border-sky-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
               <div className="flex items-center justify-between mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-300">
+                <div className="w-7 h-7 rounded-lg bg-sky-100 flex items-center justify-center text-sky-800">
                   <Users className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-300">
                   Active Sessions
                 </span>
               </div>
-              <div className="font-serif font-black text-2xl text-white group-hover:text-sky-200 transition-colors">
+              <div className="font-serif font-black text-2xl text-[#781822] group-hover:text-sky-700 transition-colors">
                 {stats.kpis?.monthlyActiveUsers?.displayValue || '1'}
               </div>
-              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+              <div className="text-xs font-bold text-stone-800 mt-0.5 leading-snug">
                 {t('kpiMonthlyActiveUsers')}
               </div>
-              <div className="text-[10px] text-stone-400 mt-0.5">
+              <div className="text-[10px] text-stone-500 mt-0.5">
                 {t('kpiMonthlyActiveUsersSub')}
               </div>
             </div>
 
             {/* KPI 3: Search Success Rate */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+            <div className="p-3.5 rounded-2xl bg-white/95 border border-[#DECFA9] shadow-sm hover:border-amber-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
               <div className="flex items-center justify-between mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-300">
+                <div className="w-7 h-7 rounded-lg bg-amber-100 flex items-center justify-center text-[#D35400]">
                   <Search className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
                   {stats.kpis?.searchSuccessRate?.avgLatencyMs || 42}ms latency
                 </span>
               </div>
-              <div className="font-serif font-black text-2xl text-white group-hover:text-amber-200 transition-colors">
+              <div className="font-serif font-black text-2xl text-[#781822] group-hover:text-[#D35400] transition-colors">
                 {stats.kpis?.searchSuccessRate?.displayValue || '100%'}
               </div>
-              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+              <div className="text-xs font-bold text-stone-800 mt-0.5 leading-snug">
                 {t('kpiSearchSuccessRate')}
               </div>
-              <div className="text-[10px] text-stone-400 mt-0.5">
+              <div className="text-[10px] text-stone-500 mt-0.5">
                 {t('kpiSearchSuccessRateSub')}
               </div>
             </div>
 
             {/* KPI 4: Page Engagement Time */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-rose-400 hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+            <div className="p-3.5 rounded-2xl bg-white/95 border border-[#DECFA9] shadow-sm hover:border-rose-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
               <div className="flex items-center justify-between mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-300">
+                <div className="w-7 h-7 rounded-lg bg-rose-100 flex items-center justify-center text-rose-800">
                   <Clock className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-300">
                   Avg Session
                 </span>
               </div>
-              <div className="font-serif font-black text-2xl text-white group-hover:text-rose-200 transition-colors">
+              <div className="font-serif font-black text-2xl text-[#781822] group-hover:text-rose-700 transition-colors">
                 {stats.kpis?.pageEngagementTime?.displayValue || '4m 00s'}
               </div>
-              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+              <div className="text-xs font-bold text-stone-800 mt-0.5 leading-snug">
                 {t('kpiPageEngagement')}
               </div>
-              <div className="text-[10px] text-stone-400 mt-0.5">
+              <div className="text-[10px] text-stone-500 mt-0.5">
                 {t('kpiPageEngagementSub')}
               </div>
             </div>
 
             {/* KPI 5: User Satisfaction Score */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-emerald-400 hover:-translate-y-0.5 transition-all duration-200 col-span-2 lg:col-span-1 group shadow-lg">
+            <div className="p-3.5 rounded-2xl bg-white/95 border border-[#DECFA9] shadow-sm hover:border-emerald-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 col-span-2 lg:col-span-1 group">
               <div className="flex items-center justify-between mb-1.5">
-                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300">
-                  <Star className="w-3.5 h-3.5 fill-emerald-300" />
+                <div className="w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">
+                  <Star className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" />
                 </div>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
                   {stats.kpis?.userSatisfactionScore?.totalRatings || stats.totalPilgrimTips || 4} Reviews
                 </span>
               </div>
-              <div className="font-serif font-black text-2xl text-emerald-400 group-hover:text-emerald-300 transition-colors">
+              <div className="font-serif font-black text-2xl text-emerald-700 group-hover:text-emerald-800 transition-colors">
                 {stats.kpis?.userSatisfactionScore?.displayValue || '5.0 / 5.0'}
               </div>
-              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+              <div className="text-xs font-bold text-stone-800 mt-0.5 leading-snug">
                 {t('kpiSatisfactionScore')}
               </div>
-              <div className="text-[10px] text-stone-400 mt-0.5">
+              <div className="text-[10px] text-stone-500 mt-0.5">
                 {t('kpiSatisfactionScoreSub')}
               </div>
             </div>
@@ -772,7 +744,7 @@ export default function HomePage({
             <div
               key={reg.id}
               onClick={() => handleRegionClick(reg.id)}
-              className="group relative overflow-hidden rounded-2xl p-6 bg-white border border-stone-200/80 hover:border-vedic-gold shadow-sm hover:shadow-temple transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              className="group relative overflow-hidden rounded-2xl p-6 bg-white border border-[#E8DFC8] hover:border-[#C89B3C] shadow-sm hover:shadow-temple transition-all duration-300 cursor-pointer flex flex-col justify-between"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">

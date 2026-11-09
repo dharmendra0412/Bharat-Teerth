@@ -101,7 +101,7 @@ export default function App() {
     <LanguageProvider>
       <AuthProvider>
         <PilgrimageProvider>
-        <div className="min-h-screen flex flex-col bg-[#FFFDF9] text-[#1E201E]">
+        <div className="min-h-screen flex flex-col bg-[#FBF8F3] text-stone-900">
           
           {/* Navigation Bar */}
           <Navbar 

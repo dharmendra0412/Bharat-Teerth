@@ -37,7 +37,7 @@ export default function TempleCard({ temple, onSelectTemple }) {
   return (
     <div 
       onClick={() => onSelectTemple(temple.id)}
-      className="group bg-white rounded-2xl overflow-hidden border border-stone-200/80 hover:border-vedic-gold/80 shadow-sm hover:shadow-temple transition-all duration-300 flex flex-col cursor-pointer"
+      className="group bg-white rounded-2xl overflow-hidden border border-[#E8DFC8] hover:border-[#C89B3C] shadow-sm hover:shadow-temple transition-all duration-300 flex flex-col cursor-pointer"
     >
       {/* Thumbnail & Badges */}
       <div className="relative h-56 w-full overflow-hidden bg-stone-100">

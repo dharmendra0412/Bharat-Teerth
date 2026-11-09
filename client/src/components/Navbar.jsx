@@ -52,41 +52,41 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FFFDF9]/95 backdrop-blur-md border-b border-vedic-gold/20 shadow-sm transition-all">
+    <header className="sticky top-0 z-50 bg-[#FBF8F3]/95 backdrop-blur-md border-b border-[#E8DFC8] shadow-sm transition-all">
       {/* Top Auspicious Cultural Ribbon */}
-      <div className="bg-gradient-to-r from-vedic-maroon via-vedic-saffron to-vedic-maroon text-white text-xs py-1.5 px-4 font-medium tracking-wide">
+      <div className="bg-[#781822] text-[#F9E8B2] text-xs py-2 px-4 font-medium tracking-wide border-b border-[#5A0D15]">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <span className="text-vedic-gold font-serif text-sm">ॐ</span>
-            <span className="truncate">{t('portalSubtitle')}</span>
+            <span className="text-amber-300 font-serif text-sm">ॐ</span>
+            <span className="truncate font-serif italic text-amber-100">{t('portalSubtitle')}</span>
           </div>
 
-          <div className="flex items-center space-x-4 text-[11px] text-vedic-goldLight">
+          <div className="flex items-center space-x-4 text-[11px] text-amber-200">
             
             {/* Sacred Bell Ring Action */}
             <button
               onClick={handleRingBell}
               className={`flex items-center space-x-1 px-2.5 py-0.5 rounded-full transition-all border ${
                 bellRinging 
-                  ? 'bg-vedic-gold text-vedic-maroon border-white scale-105' 
-                  : 'bg-white/10 hover:bg-white/20 text-white border-white/20'
+                  ? 'bg-amber-400 text-[#781822] border-white scale-105 shadow-md font-bold' 
+                  : 'bg-white/10 hover:bg-white/20 text-amber-100 border-amber-300/30'
               }`}
               title="Ring the sacred temple bell"
             >
-              <Bell className={`w-3.5 h-3.5 text-vedic-gold ${bellRinging ? 'animate-bounce' : ''}`} />
+              <Bell className={`w-3.5 h-3.5 text-amber-300 ${bellRinging ? 'animate-bounce text-[#781822]' : ''}`} />
               <span className="hidden sm:inline">{t('ringBell')}</span>
             </button>
 
-            <span className="hidden md:inline">•</span>
+            <span className="hidden md:inline text-amber-400/60">•</span>
 
             <span className="hidden md:flex items-center space-x-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-vedic-gold" />
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-300" />
               <span>{t('verifiedBadge')}</span>
             </span>
 
-            <span className="hidden md:inline">•</span>
+            <span className="hidden md:inline text-amber-400/60">•</span>
 
-            <span className="text-white/80 font-mono">IST {new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}</span>
+            <span className="text-amber-100/90 font-mono">IST {new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}</span>
           </div>
         </div>
       </div>
@@ -100,17 +100,17 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
             onClick={() => handleNavClick('home')}
             className="flex items-center space-x-3 cursor-pointer group"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-vedic-saffron to-vedic-maroon p-0.5 shadow-md shadow-vedic-saffron/20 group-hover:scale-105 transition-transform flex items-center justify-center">
-              <div className="w-full h-full bg-[#1A0B09] rounded-[10px] flex items-center justify-center text-2xl">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#D35400] to-[#781822] p-0.5 shadow-md shadow-[#781822]/20 group-hover:scale-105 transition-transform flex items-center justify-center">
+              <div className="w-full h-full bg-[#1C0D08] rounded-[10px] flex items-center justify-center text-2xl">
                 🛕
               </div>
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="font-serif font-black text-xl text-vedic-maroon tracking-tight">
+                <span className="font-serif font-black text-xl text-[#781822] tracking-tight">
                   {t('portalName').toUpperCase()}
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-vedic-saffronLight text-vedic-saffronDark font-semibold uppercase tracking-wider border border-vedic-saffron/30">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-[#781822] font-bold uppercase tracking-wider border border-amber-300">
                   Incredible India
                 </span>
               </div>
@@ -124,10 +124,10 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
           <nav className="hidden lg:flex items-center space-x-1">
             <button
               onClick={() => handleNavClick('home')}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                 activeTab === 'home'
-                  ? 'bg-vedic-saffron/10 text-vedic-saffronDark font-semibold shadow-sm'
-                  : 'text-stone-700 hover:text-vedic-saffronDark hover:bg-stone-50'
+                  ? 'bg-[#781822]/10 text-[#781822] font-bold shadow-sm'
+                  : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
               {t('navHome')}
@@ -135,49 +135,49 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
 
             <button
               onClick={() => handleNavClick('explore')}
-              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                 activeTab === 'explore'
-                  ? 'bg-vedic-saffron/10 text-vedic-saffronDark font-semibold shadow-sm'
-                  : 'text-stone-700 hover:text-vedic-saffronDark hover:bg-stone-50'
+                  ? 'bg-[#781822]/10 text-[#781822] font-bold shadow-sm'
+                  : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <Compass className="w-4 h-4" />
+              <Compass className="w-4 h-4 text-[#D35400]" />
               <span>{t('navExplore')}</span>
             </button>
 
             <button
               onClick={() => handleNavClick('circuits')}
-              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                 activeTab === 'circuits'
-                  ? 'bg-vedic-saffron/10 text-vedic-saffronDark font-semibold shadow-sm'
-                  : 'text-stone-700 hover:text-vedic-saffronDark hover:bg-stone-50'
+                  ? 'bg-[#781822]/10 text-[#781822] font-bold shadow-sm'
+                  : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-4 h-4 text-[#D35400]" />
               <span>{t('navCircuits')}</span>
             </button>
 
             <button
               onClick={() => handleNavClick('map')}
-              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                 activeTab === 'map'
-                  ? 'bg-vedic-saffron/10 text-vedic-saffronDark font-semibold shadow-sm'
-                  : 'text-stone-700 hover:text-vedic-saffronDark hover:bg-stone-50'
+                  ? 'bg-[#781822]/10 text-[#781822] font-bold shadow-sm'
+                  : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <MapIcon className="w-4 h-4" />
+              <MapIcon className="w-4 h-4 text-[#D35400]" />
               <span>{t('navMap')}</span>
             </button>
 
             <button
               onClick={() => handleNavClick('guidelines')}
-              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                 activeTab === 'guidelines'
-                  ? 'bg-vedic-saffron/10 text-vedic-saffronDark font-semibold shadow-sm'
-                  : 'text-stone-700 hover:text-vedic-saffronDark hover:bg-stone-50'
+                  ? 'bg-[#781822]/10 text-[#781822] font-bold shadow-sm'
+                  : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <BookOpen className="w-4 h-4" />
+              <BookOpen className="w-4 h-4 text-[#D35400]" />
               <span>{t('navGuidelines')}</span>
             </button>
           </nav>
@@ -189,19 +189,19 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
             <div className="relative" ref={langDropdownRef}>
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-vedic-gold/40 bg-white hover:bg-vedic-saffronLight/20 text-xs font-semibold text-stone-700 shadow-sm transition-all"
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-[#D5C6A9] bg-white hover:bg-[#FAF6EC] text-xs font-bold text-stone-800 shadow-sm transition-all"
                 title="Change language"
               >
-                <Globe className="w-3.5 h-3.5 text-vedic-saffron" />
+                <Globe className="w-3.5 h-3.5 text-[#D35400]" />
                 <span>{currentLangInfo.flag} {currentLangInfo.native}</span>
                 <ChevronDown className="w-3 h-3 text-stone-400" />
               </button>
 
               {langMenuOpen && (
-                <div className="absolute right-0 mt-2 w-64 max-h-96 overflow-y-auto bg-white border border-stone-200 rounded-2xl shadow-2xl py-2 z-50 animate-fadeIn scrollbar-thin">
+                <div className="absolute right-0 mt-2 w-64 max-h-96 overflow-y-auto bg-white border border-[#E8DFC8] rounded-2xl shadow-2xl py-2 z-50 animate-fadeIn scrollbar-thin">
                   <div className="px-3.5 py-1.5 text-[11px] font-bold text-stone-500 uppercase tracking-wider border-b border-stone-100 flex items-center justify-between">
                     <span>22 Official Languages + English</span>
-                    <span className="text-vedic-saffron">23</span>
+                    <span className="text-[#D35400]">23</span>
                   </div>
                   <div className="py-1">
                     {allLanguages.map((l) => (
@@ -211,8 +211,8 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
                           setLanguage(l.code);
                           setLangMenuOpen(false);
                         }}
-                        className={`w-full text-left px-3.5 py-2 text-xs flex items-center justify-between hover:bg-vedic-saffronLight/20 transition-colors ${
-                          language === l.code ? 'font-bold text-vedic-maroon bg-vedic-saffronLight/30' : 'text-stone-700'
+                        className={`w-full text-left px-3.5 py-2 text-xs flex items-center justify-between hover:bg-amber-50 transition-colors ${
+                          language === l.code ? 'font-bold text-[#781822] bg-amber-100/50' : 'text-stone-700'
                         }`}
                       >
                         <span className="flex items-center space-x-2">
@@ -220,7 +220,7 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
                           <span className="font-medium">{l.native}</span>
                           <span className="text-[10px] text-stone-400">({l.name})</span>
                         </span>
-                        {language === l.code && <Check className="w-3.5 h-3.5 text-vedic-maroon" />}
+                        {language === l.code && <Check className="w-3.5 h-3.5 text-[#781822]" />}
                       </button>
                     ))}
                   </div>
@@ -231,16 +231,16 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
             {/* My Yatra Planner Button */}
             <button
               onClick={() => handleNavClick('planner')}
-              className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border ${
+              className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all border ${
                 activeTab === 'planner'
-                  ? 'bg-vedic-maroon text-white border-vedic-maroon shadow-md'
-                  : 'bg-white text-vedic-maroon border-vedic-gold/40 hover:bg-vedic-goldLight'
+                  ? 'bg-[#781822] text-[#F9E8B2] border-[#781822] shadow-md'
+                  : 'bg-white text-[#781822] border-[#D5C6A9] hover:bg-[#FAF6EC]'
               }`}
             >
-              <Bookmark className="w-3.5 h-3.5 text-vedic-gold" />
+              <Bookmark className="w-3.5 h-3.5 text-[#C89B3C]" />
               <span>{t('navYatra')}</span>
               {plannedTemples.length > 0 && (
-                <span className="w-4 h-4 rounded-full bg-vedic-saffron text-white text-[10px] flex items-center justify-center font-bold">
+                <span className="w-4 h-4 rounded-full bg-[#D35400] text-white text-[10px] flex items-center justify-center font-bold">
                   {plannedTemples.length}
                 </span>
               )}
@@ -251,9 +251,9 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => handleNavClick('admin')}
-                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
+                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                     activeTab === 'admin'
-                      ? 'bg-vedic-saffronDark text-white shadow'
+                      ? 'bg-[#781822] text-white shadow'
                       : 'bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100'
                   }`}
                 >
@@ -271,9 +271,9 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
             ) : (
               <button
                 onClick={() => handleNavClick('admin')}
-                className="flex items-center space-x-1 px-2.5 py-1.5 text-xs font-medium text-stone-500 hover:text-vedic-maroon border border-dashed border-stone-300 rounded-lg hover:border-vedic-saffron transition-all"
+                className="flex items-center space-x-1 px-2.5 py-1.5 text-xs font-bold text-stone-600 hover:text-[#781822] border border-[#D5C6A9] rounded-xl hover:border-[#781822] bg-white transition-all shadow-sm"
               >
-                <LogIn className="w-3 h-3" />
+                <LogIn className="w-3 h-3 text-[#D35400]" />
                 <span>{t('navAdmin')}</span>
               </button>
             )}

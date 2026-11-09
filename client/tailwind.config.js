@@ -8,28 +8,31 @@ export default {
     extend: {
       colors: {
         vedic: {
-          saffron: "#FF6F00",
-          saffronDark: "#E65100",
+          saffron: "#D35400",
+          saffronDark: "#B84300",
           saffronLight: "#FFF3E0",
-          gold: "#D4AF37",
-          goldLight: "#FBF5E6",
-          maroon: "#800020",
-          maroonDark: "#4A0012",
-          sacredRed: "#C2185B",
+          gold: "#C89B3C",
+          goldLight: "#FDF7EB",
+          maroon: "#781822",
+          maroonDark: "#5A0D15",
+          sacredRed: "#9E1B32",
           terracotta: "#B23A22",
-          sandstone: "#EFE6DD",
+          sandstone: "#FBF8F3",
+          sandstoneDark: "#EFE6D5",
+          sandstoneBorder: "#E8DFC8",
           deepNavy: "#0B192C",
           templeGray: "#1E201E",
-          ivory: "#FAFAF5"
+          ivory: "#FFFFFF"
         }
       },
       fontFamily: {
         serif: ['"Cinzel"', '"Rozha One"', 'Georgia', 'serif'],
+        playfair: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'temple': '0 10px 25px -5px rgba(212, 175, 55, 0.15), 0 8px 10px -6px rgba(128, 0, 32, 0.1)',
-        'sacred': '0 4px 20px -2px rgba(230, 81, 0, 0.25)',
+        'temple': '0 10px 25px -5px rgba(200, 155, 60, 0.15), 0 8px 10px -6px rgba(120, 24, 34, 0.1)',
+        'sacred': '0 4px 20px -2px rgba(211, 84, 0, 0.25)',
       }
     },
   },
