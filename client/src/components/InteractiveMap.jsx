@@ -14,7 +14,7 @@ export default function InteractiveMap({ temples = [], onSelectTemple, selectedC
   const [activeFilterDeity, setActiveFilterDeity] = useState('All');
   const [activeFilterState, setActiveFilterState] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeLayer, setActiveLayer] = useState('osm'); // 'osm' | 'topo' | 'satellite'
+  const [activeLayer, setActiveLayer] = useState('street'); // 'street' | 'topo' | 'satellite'
 
   // Extract authentic distinct deities & states dynamically
   const uniqueStates = useMemo(() => {
@@ -56,9 +56,9 @@ export default function InteractiveMap({ temples = [], onSelectTemple, selectedC
         scrollWheelZoom: true
       });
 
-      // 100% Free Open-Source Tile Layers (Zero Watermarks, Zero API Keys Required)
-      const osmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      // High-Performance CDN Tile Layers (Zero 403 blocks, Zero Watermarks, Zero API Keys)
+      const streetLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri, DeLorme, NAVTEQ',
         maxZoom: 19
       });
 
@@ -68,15 +68,15 @@ export default function InteractiveMap({ temples = [], onSelectTemple, selectedC
       });
 
       const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Source: Esri, Maxar, Earthstar Geographics, GIS User Community',
+        attribution: 'Source: Esri, Maxar, Earthstar Geographics',
         maxZoom: 19
       });
 
-      // Default to crisp OpenStreetMap
-      osmLayer.addTo(map);
+      // Default to clear, crisp Street Map
+      streetLayer.addTo(map);
 
       tileLayersRef.current = {
-        osm: osmLayer,
+        street: streetLayer,
         topo: topoLayer,
         satellite: satelliteLayer
       };
@@ -325,13 +325,13 @@ export default function InteractiveMap({ temples = [], onSelectTemple, selectedC
           {/* Map Layer Switcher: Street vs Topo vs Satellite */}
           <div className="inline-flex rounded-lg border border-stone-300 bg-white p-0.5 text-xs">
             <button
-              onClick={() => switchLayer('osm')}
+              onClick={() => switchLayer('street')}
               className={`px-2.5 py-1 rounded-md font-semibold transition-colors ${
-                activeLayer === 'osm' 
+                activeLayer === 'street' 
                   ? 'bg-vedic-maroon text-white shadow-xs' 
                   : 'text-stone-600 hover:text-stone-900'
               }`}
-              title="Official OpenStreetMap Standard"
+              title="Esri World Street Map"
             >
               Street
             </button>
