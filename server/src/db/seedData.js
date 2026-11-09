@@ -12617,9 +12617,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Jagadguru Kripalu Parishat (JKP) & UP Braj Teerth Vikas Parishad",
-      "imageUrl": "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28471%29.jpg/1280px-Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28471%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28471%29.jpg/1280px-Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28471%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28472%29.jpg/1280px-Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28472%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28473%29.jpg/1280px-Prem_Mandir_Vrindavan%2C_Mathura%2C_Agra%2C_Uttar_Pradesh%2C_India_%282012%29_%28473%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -12731,9 +12730,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Shri Krishna Janmabhoomi Trust & UP Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Keshav_Dev_Temple_at_the_Shri_Krishna_Janma-Bhoomi_-_Mathura_-_India_-_2013-03_096_%2811552205214%29.jpg/1280px-Keshav_Dev_Temple_at_the_Shri_Krishna_Janma-Bhoomi_-_Mathura_-_India_-_2013-03_096_%2811552205214%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Keshav_Dev_Temple_at_the_Shri_Krishna_Janma-Bhoomi_-_Mathura_-_India_-_2013-03_096_%2811552205214%29.jpg/1280px-Keshav_Dev_Temple_at_the_Shri_Krishna_Janma-Bhoomi_-_Mathura_-_India_-_2013-03_096_%2811552205214%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Krishna_palika.jpg/1280px-Krishna_palika.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
       ],
@@ -12844,9 +12842,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Sankat Mochan Foundation & Kashi Vishwanath Trust",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Sankat_mochan_temple_lmp_2.jpg/1280px-Sankat_mochan_temple_lmp_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Sankat_mochan_temple_lmp_2.jpg/1280px-Sankat_mochan_temple_lmp_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Sankat_mochan_temple_3.JPG/1280px-Sankat_mochan_temple_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Sankat_Mochan_Veer_Hanuman_Temple_interior.jpg/1280px-Sankat_Mochan_Veer_Hanuman_Temple_interior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -12952,9 +12949,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Vindhyachal Temple Trust & UP Government",
-      "imageUrl": "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vindyvashni_temple123.jpg/1280px-Vindyvashni_temple123.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vindyvashni_temple123.jpg/1280px-Vindyvashni_temple123.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Vindhyavasini_Vijayasana_Mata_Temple%2C_Salkanpur.jpg/1280px-Vindhyavasini_Vijayasana_Mata_Temple%2C_Salkanpur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
       ],
@@ -13062,9 +13058,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Badrinath-Kedarnath Temple Committee (BKTC) & Uttarakhand Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/NeelKanth_Mahadev_Temple.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://upload.wikimedia.org/wikipedia/commons/7/7d/NeelKanth_Mahadev_Temple.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Neelkanth_Mahadev_Temple.jpg/1280px-Neelkanth_Mahadev_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Neelkanth_mahadev_mandir.jpg/1280px-Neelkanth_mahadev_mandir.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -13170,9 +13165,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Badrinath-Kedarnath Temple Committee (BKTC)",
-      "imageUrl": "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Mountain_Range_at_day_time.jpg/1280px-Mountain_Range_at_day_time.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Mountain_Range_at_day_time.jpg/1280px-Mountain_Range_at_day_time.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Panorama_view_of_the_Mountain_Range.jpg/1280px-Panorama_view_of_the_Mountain_Range.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Triyuginarayan_Temple%2C_Rudraprayag%2C_Uttarakhand.jpg/1280px-Triyuginarayan_Temple%2C_Rudraprayag%2C_Uttarakhand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
@@ -13274,9 +13268,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Archaeological Survey of India (ASI) & Jageshwar Mandir Samiti",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Jageshwar_Dham_Temple%2C_Almora_06.jpg/1280px-Jageshwar_Dham_Temple%2C_Almora_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Jageshwar_Dham_Temple%2C_Almora_06.jpg/1280px-Jageshwar_Dham_Temple%2C_Almora_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Jageshwar_Dham_Temple%2C_Almora_04.jpg/1280px-Jageshwar_Dham_Temple%2C_Almora_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Jageshwar_Dham_Temple%2C_Almora_13.jpg/1280px-Jageshwar_Dham_Temple%2C_Almora_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -13383,9 +13376,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Mata Chintpurni Temple Trust & Himachal Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Jai_Mata_Di...Maa_Chintpurni%27s_Durbar_as_seen_from_the_ancient_havan_kund_on_left.jpg/1280px-Jai_Mata_Di...Maa_Chintpurni%27s_Durbar_as_seen_from_the_ancient_havan_kund_on_left.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Jai_Mata_Di...Maa_Chintpurni%27s_Durbar_as_seen_from_the_ancient_havan_kund_on_left.jpg/1280px-Jai_Mata_Di...Maa_Chintpurni%27s_Durbar_as_seen_from_the_ancient_havan_kund_on_left.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Devotees_tie_red_crimson_threads_on_making_a_wish%2C_and_come_back_and_untie_when_fulfilled...Jai_Mata_Di.jpg/1280px-Devotees_tie_red_crimson_threads_on_making_a_wish%2C_and_come_back_and_untie_when_fulfilled...Jai_Mata_Di.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
       ],
@@ -13494,9 +13486,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Dharmarth Trust Jammu and Kashmir",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Raghunath_Temple_Jammu.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://upload.wikimedia.org/wikipedia/commons/f/f1/Raghunath_Temple_Jammu.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/The_Temples_of_Raghunath%2C_Jammu%2C_India%2C_ca.1875-ca.1940_%28imp-cswc-GB-237-CSWC47-LS10-011%29.jpg/1280px-The_Temples_of_Raghunath%2C_Jammu%2C_India%2C_ca.1875-ca.1940_%28imp-cswc-GB-237-CSWC47-LS10-011%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Beyond_the_Pir_Panjal%3B_life_among_the_mountains_and_valleys_of_Kashmir_%281912%29_%2814593894699%29.jpg/1280px-Beyond_the_Pir_Panjal%3B_life_among_the_mountains_and_valleys_of_Kashmir_%281912%29_%2814593894699%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -13602,9 +13593,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Dharmarth Trust J&K & Ganderbal District Administration",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_Temple_Tulmulla_Ganderbal_District_Jammu_%26_Kashmir_India.jpg/1280px-Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_Temple_Tulmulla_Ganderbal_District_Jammu_%26_Kashmir_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_Temple_Tulmulla_Ganderbal_District_Jammu_%26_Kashmir_India.jpg/1280px-Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_Temple_Tulmulla_Ganderbal_District_Jammu_%26_Kashmir_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_temple_Chinar_Shade.jpg/1280px-Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_temple_Chinar_Shade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_temple_Young_Chinar.jpg/1280px-Kheer_Bhawani%2C_Ksheer_Bhawani_or_the_Ragnya_Devi_temple_Young_Chinar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -13704,9 +13694,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Pavagadh Temple Trust & Gujarat Pavitra Yatradham Vikas Board",
-      "imageUrl": "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Pwg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "gallery": [
-        "https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&w=1200&q=80",
         "https://upload.wikimedia.org/wikipedia/commons/c/c7/Pwg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Kalika_Ma..jpg/1280px-Kalika_Ma..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Pavagadh_002.jpg/1280px-Pavagadh_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -13811,9 +13800,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "BAPS Swaminarayan Sanstha & Gujarat Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Akshardham_Gandhinagar_Gujarat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "gallery": [
-        "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
         "https://upload.wikimedia.org/wikipedia/commons/7/77/Akshardham_Gandhinagar_Gujarat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://upload.wikimedia.org/wikipedia/commons/6/6a/BAPS_Akshardham_Gandhinagar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
       ],
@@ -13918,10 +13906,9 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Dilwara Temple Trust & Archaeological Survey of India",
-      "imageUrl": "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Dilwara_temple_at_mount_abu.jpg/1280px-Dilwara_temple_at_mount_abu.jpg",
       "gallery": [
-        "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200&q=80"
-      ],
+        ],
       "location": {
         "state": "Rajasthan",
         "city": "Mount Abu, Sirohi",
@@ -14022,9 +14009,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Shree Mahalakshmi Temple Trust, Mumbai",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/BETTING_RING_OF_MAHALAKSHMI_RACECOURSE%28Mumbai%29.JPG/1280px-BETTING_RING_OF_MAHALAKSHMI_RACECOURSE%28Mumbai%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/BETTING_RING_OF_MAHALAKSHMI_RACECOURSE%28Mumbai%29.JPG/1280px-BETTING_RING_OF_MAHALAKSHMI_RACECOURSE%28Mumbai%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://upload.wikimedia.org/wikipedia/commons/8/86/Mahaluxmee_Temple%2C_Bombay%2C_from_the_Road_%2812673459585%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://upload.wikimedia.org/wikipedia/commons/c/cd/Mahaluxmee_Temple%2C_Bombay_-_Distant_View_%2812673936514%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
@@ -14134,9 +14120,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Jejuri Temple Trust & Maharashtra Tourism Development Corporation",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Jejuri_gadkot.jpg/1280px-Jejuri_gadkot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Jejuri_gadkot.jpg/1280px-Jejuri_gadkot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Khandoba_temple_jejuri.jpg/1280px-Khandoba_temple_jejuri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Khandoba_jejuri_temple_front.jpg/1280px-Khandoba_jejuri_temple_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -14241,9 +14226,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Chinchwad Devasthan Trust & MTDC",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Historic_heritage_sites_of_Maharashtra_with_GPS_coordinates.jpg/1280px-Historic_heritage_sites_of_Maharashtra_with_GPS_coordinates.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Historic_heritage_sites_of_Maharashtra_with_GPS_coordinates.jpg/1280px-Historic_heritage_sites_of_Maharashtra_with_GPS_coordinates.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Morgaon.jpg/1280px-Morgaon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://upload.wikimedia.org/wikipedia/commons/4/47/Morgaon_temple_gate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
@@ -14353,9 +14337,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Hindu Religious Institutions & Charitable Endowments, Karnataka",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Kollur_Mookambika_Temple_20080123.JPG/1280px-Kollur_Mookambika_Temple_20080123.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Kollur_Mookambika_Temple_20080123.JPG/1280px-Kollur_Mookambika_Temple_20080123.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://upload.wikimedia.org/wikipedia/commons/1/12/Kollur_mookambika_temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Kollur_mookambika_temple21.jpg/1280px-Kollur_mookambika_temple21.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -14467,9 +14450,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Karnataka Religious Endowments Department",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kukke_Subramanya_Temple_5.jpg/1280px-Kukke_Subramanya_Temple_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kukke_Subramanya_Temple_5.jpg/1280px-Kukke_Subramanya_Temple_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Kukke_Subramanya_Temple%2C_Karnataka_03.jpg/1280px-Kukke_Subramanya_Temple%2C_Karnataka_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Kukke_Subramanya_Temple%2C_Karnataka_05.jpg/1280px-Kukke_Subramanya_Temple%2C_Karnataka_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -14579,9 +14561,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Dakshinamnaya Sri Sharada Peetham, Sringeri",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Dakshinamnaya_Sri_Sharada_Peetham_2%2C_Sringeri%2C_Karnataka_05.jpg/1280px-Dakshinamnaya_Sri_Sharada_Peetham_2%2C_Sringeri%2C_Karnataka_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Dakshinamnaya_Sri_Sharada_Peetham_2%2C_Sringeri%2C_Karnataka_05.jpg/1280px-Dakshinamnaya_Sri_Sharada_Peetham_2%2C_Sringeri%2C_Karnataka_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Dakshinamnaya_Sri_Sharada_Peetham_3%2C_Sringeri%2C_Karnataka_06.jpg/1280px-Dakshinamnaya_Sri_Sharada_Peetham_3%2C_Sringeri%2C_Karnataka_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Dakshinamnaya_Sri_Sharada_Peetham_3%2C_Sringeri%2C_Karnataka_05.jpg/1280px-Dakshinamnaya_Sri_Sharada_Peetham_3%2C_Sringeri%2C_Karnataka_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -14687,9 +14668,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Archaeological Survey of India (ASI) & UNESCO World Heritage Centre",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_019_hg.jpg/1280px-Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_019_hg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_019_hg.jpg/1280px-Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_019_hg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_020_hg.jpg/1280px-Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_020_hg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_021_hg.jpg/1280px-Sculptures_at_the_Hoysaleswara_Temple%2C_Halebidu%2C_Hassan%2C_Karnataka%2C_India_%281970%29_021_hg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -14795,9 +14775,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "HR&CE Department, Government of Tamil Nadu",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Swamimalai_temple.jpg/1280px-Swamimalai_temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Swamimalai_temple.jpg/1280px-Swamimalai_temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Swamimalai_Murugan_Temple.jpg/1280px-Swamimalai_Murugan_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Swamimlai_temple.JPG/1280px-Swamimlai_temple.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -14913,9 +14892,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Kanyakumari District Devaswom Board & HR&CE Tamil Nadu",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Thanumalayan_Temple_Suchindram_Kanyakumari_Tamil_Nadu_%E0%AE%A4%E0%AE%BE%E0%AE%A3%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B2%E0%AE%AF%E0%AE%A9%E0%AF%8D.jpg/1280px-Thanumalayan_Temple_Suchindram_Kanyakumari_Tamil_Nadu_%E0%AE%A4%E0%AE%BE%E0%AE%A3%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B2%E0%AE%AF%E0%AE%A9%E0%AF%8D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Thanumalayan_Temple_Suchindram_Kanyakumari_Tamil_Nadu_%E0%AE%A4%E0%AE%BE%E0%AE%A3%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B2%E0%AE%AF%E0%AE%A9%E0%AF%8D.jpg/1280px-Thanumalayan_Temple_Suchindram_Kanyakumari_Tamil_Nadu_%E0%AE%A4%E0%AE%BE%E0%AE%A3%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B2%E0%AE%AF%E0%AE%A9%E0%AF%8D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Suchindram-temple-south-indian-temple-attractions.jpg/1280px-Suchindram-temple-south-indian-temple-attractions.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/SUCHINDAM_%283%29.jpg/1280px-SUCHINDAM_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -15025,9 +15003,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Cochin Devaswom Board, Kerala",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Chottanikkara_Bhagavathy_Temple_and_surroundings_%281%29.jpg/1280px-Chottanikkara_Bhagavathy_Temple_and_surroundings_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Chottanikkara_Bhagavathy_Temple_and_surroundings_%281%29.jpg/1280px-Chottanikkara_Bhagavathy_Temple_and_surroundings_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Chottanikkara_Bhagavathy_Temple_and_surroundings_%2810%29.jpg/1280px-Chottanikkara_Bhagavathy_Temple_and_surroundings_%2810%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Chottanikkara_Bhagavathy_Temple_and_surroundings_%2812%29.jpg/1280px-Chottanikkara_Bhagavathy_Temple_and_surroundings_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -15144,9 +15121,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Endowments Department, Government of Andhra Pradesh",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Kanaka_Durga_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://upload.wikimedia.org/wikipedia/commons/e/e1/Kanaka_Durga_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Vijayawada_durga_temple.JPG/1280px-Vijayawada_durga_temple.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://upload.wikimedia.org/wikipedia/commons/d/d4/View_of_Kanaka_Durga_Temple_on_Indrakeeladri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
@@ -15262,9 +15238,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Chilkur Balaji Devasthanam & Telangana Endowments",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pushpa.jpg/1280px-Pushpa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pushpa.jpg/1280px-Pushpa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
       ],
       "location": {
@@ -15367,10 +15342,9 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Endowments Department, Government of Telangana",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Basara_Saraswathi_Temple_India.jpg/1280px-Basara_Saraswathi_Temple_India.jpg",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80"
-      ],
+        ],
       "location": {
         "state": "Telangana",
         "city": "Basar, Nirmal",
@@ -15476,9 +15450,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Himachal Pradesh Temple Trust & HP Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chamunda_Devi_Temple_02.JPG/1280px-Chamunda_Devi_Temple_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chamunda_Devi_Temple_02.JPG/1280px-Chamunda_Devi_Temple_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Chamunda_Devi_Temple_03.JPG/1280px-Chamunda_Devi_Temple_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Chamunda_Devi_Temple_06.JPG/1280px-Chamunda_Devi_Temple_06.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -15577,9 +15550,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Durgiana Temple Committee & Punjab Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Durgiana_Temple%2C_Amritsar.jpg/1280px-Durgiana_Temple%2C_Amritsar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Durgiana_Temple%2C_Amritsar.jpg/1280px-Durgiana_Temple%2C_Amritsar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Durgiana_Temple%2C_Amritsar_01.jpg/1280px-Durgiana_Temple%2C_Amritsar_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Durgiana_Temple%2C_Amritsar_02.jpg/1280px-Durgiana_Temple%2C_Amritsar_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -15685,10 +15657,9 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Mata Sheetla Devi Shrine Board, Haryana",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Sheetla_mata_mandir.jpg",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80"
-      ],
+        ],
       "location": {
         "state": "Haryana",
         "city": "Gurugram",
@@ -15782,9 +15753,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Mahakaleshwar Temple Management Committee, Ujjain",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Shri_Kaal_Bhairav_Mandir_Main_Gate_Ujjain_-_panoramio.jpg/1280px-Shri_Kaal_Bhairav_Mandir_Main_Gate_Ujjain_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Shri_Kaal_Bhairav_Mandir_Main_Gate_Ujjain_-_panoramio.jpg/1280px-Shri_Kaal_Bhairav_Mandir_Main_Gate_Ujjain_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Shri_Kaal_Bhairav_Mandir_Main_Gate_Ujjain_-_panoramio_%281%29.jpg/1280px-Shri_Kaal_Bhairav_Mandir_Main_Gate_Ujjain_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
       ],
@@ -15887,9 +15857,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Mahakaleshwar Management Board & MP Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Harsiddhi_Temple%2C_Ujjain_01.jpg/1280px-Harsiddhi_Temple%2C_Ujjain_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Harsiddhi_Temple%2C_Ujjain_01.jpg/1280px-Harsiddhi_Temple%2C_Ujjain_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Harsiddhi_Temple%2C_Ujjain_02.jpg/1280px-Harsiddhi_Temple%2C_Ujjain_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Harsiddhi_Temple%2C_Ujjain_03.jpg/1280px-Harsiddhi_Temple%2C_Ujjain_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -15995,9 +15964,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Shri Digambar & Shwetambar Jain Teerth Kshetras & Jharkhand Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Shikharji_Parasnath_Giridih.jpg/1280px-Shikharji_Parasnath_Giridih.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Shikharji_Parasnath_Giridih.jpg/1280px-Shikharji_Parasnath_Giridih.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/View_of_Shikharji_from_Adinatha_Tonk.jpg/1280px-View_of_Shikharji_from_Adinatha_Tonk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Pilgrims_of_Shikharji_from_Adinatha_Tonk.jpg/1280px-Pilgrims_of_Shikharji_from_Adinatha_Tonk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -16098,9 +16066,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "Archaeological Survey of India (ASI) & Bihar State Religious Trust Board",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "/images/temples/mundeshwari-devi-bihar.jpg",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Maa_Mundeshwari_Devi.jpg/1280px-Maa_Mundeshwari_Devi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/A_statue_found_at_Mundeshwari_Devi_temple.jpg/1280px-A_statue_found_at_Mundeshwari_Devi_temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Information_board_at_Mundeshwari_devi_temple.jpg/1280px-Information_board_at_Mundeshwari_devi_temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -16206,9 +16173,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "ISKCON Mayapur & West Bengal Tourism",
-      "imageUrl": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Chandrodaya_Mandir_Under_Construction_-_Temple_Of_Vedic_Planetarium_-_ISKCON_Campus_-_Mayapur_-_Nadia_20170815110025.jpg/1280px-Chandrodaya_Mandir_Under_Construction_-_Temple_Of_Vedic_Planetarium_-_ISKCON_Campus_-_Mayapur_-_Nadia_20170815110025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Chandrodaya_Mandir_Under_Construction_-_Temple_Of_Vedic_Planetarium_-_ISKCON_Campus_-_Mayapur_-_Nadia_20170815110025.jpg/1280px-Chandrodaya_Mandir_Under_Construction_-_Temple_Of_Vedic_Planetarium_-_ISKCON_Campus_-_Mayapur_-_Nadia_20170815110025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Idols_of_Sri_Sri_Radha_Madhava%2C_Jagannath%2C_Balarama%2C_Subhadra_and_Chaitanya_Mahaprabhu_at_the_Temple_of_the_Vedic_Planetarium_%28ISKCON_Mayapur%29_in_Mayapur%2C_Nadia%2C_West_Bengal%2C_India.jpg/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Chandrodaya_temple_at_ISKCON%2C_Mayapur_in_Nadia_District%2C_West_Bengal%2C_India_02.jpg/1280px-Chandrodaya_temple_at_ISKCON%2C_Mayapur_in_Nadia_District%2C_West_Bengal%2C_India_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -16320,9 +16286,8 @@ export const SEED_DATA = {
       "featured": true,
       "verificationStatus": "verified",
       "verifiedBy": "HR&CE Department, Government of Tamil Nadu",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/MylaporeKapaleeshwararTemple.jpg/1280px-MylaporeKapaleeshwararTemple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "gallery": [
-        "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/MylaporeKapaleeshwararTemple.jpg/1280px-MylaporeKapaleeshwararTemple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Kapaleeshwarar_Temple_Chennai_India_-_panoramio_%281%29.jpg/1280px-Kapaleeshwarar_Temple_Chennai_India_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Kapaleeshwarar_Temple_Chennai_India_-_panoramio_%282%29.jpg/1280px-Kapaleeshwarar_Temple_Chennai_India_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",

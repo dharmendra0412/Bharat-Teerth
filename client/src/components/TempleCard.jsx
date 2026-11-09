@@ -88,26 +88,26 @@ export default function TempleCard({ temple, onSelectTemple }) {
         </div>
 
         {/* Bottom overlay info inside image: Status, Location, and Temple Name in natural vertical flow */}
-        <div className="absolute inset-x-0 bottom-0 p-3.5 pt-10 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end space-y-1.5 pointer-events-none">
+        <div className="absolute inset-x-0 bottom-0 p-3.5 pt-12 bg-gradient-to-t from-stone-950/95 via-stone-950/60 to-transparent flex flex-col justify-end space-y-2 pointer-events-none">
           {/* Live Darshan Status Tag */}
           <div className="flex items-center">
             <span className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold backdrop-blur-md shadow-sm border ${
               darshanStatus.color === 'emerald'
-                ? 'bg-emerald-950/85 text-emerald-300 border-emerald-500/40'
+                ? 'bg-emerald-950/90 text-emerald-300 border-emerald-500/40'
                 : darshanStatus.color === 'amber'
-                ? 'bg-amber-950/85 text-amber-300 border-amber-500/40'
-                : 'bg-stone-900/85 text-stone-300 border-stone-600/40'
+                ? 'bg-amber-950/90 text-amber-300 border-amber-500/40'
+                : 'bg-stone-900/90 text-stone-300 border-stone-600/40'
             }`}>
-              <span className={`w-1.5 h-1.5 rounded-full ${
+              <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
                 darshanStatus.color === 'emerald' ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
               }`} />
-              <span>{darshanStatus.statusText}</span>
+              <span className="leading-tight">{darshanStatus.statusText}</span>
             </span>
           </div>
 
           {/* Location */}
-          <div className="text-[11px] text-vedic-goldLight font-medium flex items-center space-x-1">
-            <MapPin className="w-3 h-3 text-vedic-gold shrink-0" />
+          <div className="text-[11px] text-vedic-goldLight font-medium flex items-center space-x-1.5 leading-none">
+            <MapPin className="w-3.5 h-3.5 text-vedic-gold shrink-0" />
             <span className="truncate">{temple.location.city}, {temple.location.state}</span>
           </div>
 

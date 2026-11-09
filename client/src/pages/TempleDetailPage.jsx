@@ -208,20 +208,20 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
       </div>
 
       {/* Hero Banner Header */}
-      <div className="relative rounded-3xl overflow-hidden shadow-xl bg-stone-900 text-white min-h-[380px] flex flex-col justify-end p-6 sm:p-10 border-2 border-vedic-gold/40">
+      <div className="relative rounded-3xl overflow-hidden shadow-xl bg-stone-950 text-white min-h-[380px] flex flex-col justify-end p-6 sm:p-10 border border-[#C89B3C]/50">
         
         {/* Background Image */}
         <img
           src={temple.imageUrl}
           alt={temple.name}
-          className="absolute inset-0 w-full h-full object-cover opacity-45"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.onerror = null;
             e.currentTarget.src = '/images/temples/somnath-jyotirlinga.jpg';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-stone-900/30" />
 
         {/* Content over image */}
         <div className="relative z-10 space-y-4 max-w-4xl">
@@ -235,7 +235,7 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
             )}
 
             {temple.history?.architecturalStyle && (
-              <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-medium">
+              <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-medium border border-white/20">
                 {temple.history.architecturalStyle}
               </span>
             )}
@@ -243,7 +243,7 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
 
           <div>
             {temple.localName && (
-              <p className="font-serif italic text-base sm:text-lg text-vedic-goldLight mb-1">
+              <p className="font-serif italic text-base sm:text-lg text-vedic-goldLight mb-1 tracking-wide">
                 {temple.localName}
               </p>
             )}
@@ -252,17 +252,15 @@ export default function TempleDetailPage({ templeId, onBack, onSelectTemple }) {
             </h1>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-stone-200 pt-1">
-            <span className="flex items-center space-x-1.5">
-              <MapPin className="w-4 h-4 text-vedic-gold" />
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-stone-200 pt-1">
+            <span className="inline-flex items-center space-x-1.5">
+              <MapPin className="w-4 h-4 text-vedic-gold shrink-0" />
               <span>{temple.location.address || `${temple.location.city}, ${temple.location.state}`}</span>
             </span>
 
-            <span>•</span>
-
-            <span className="flex items-center space-x-1.5">
-              <Sparkles className="w-4 h-4 text-vedic-gold" />
-              <span><strong>Presiding:</strong> {temple.deity.primary}</span>
+            <span className="inline-flex items-center space-x-1.5 sm:border-l sm:border-white/25 sm:pl-4">
+              <Sparkles className="w-4 h-4 text-vedic-gold shrink-0" />
+              <span><strong className="text-vedic-goldLight">Presiding:</strong> {temple.deity.primary}</span>
             </span>
           </div>
 
