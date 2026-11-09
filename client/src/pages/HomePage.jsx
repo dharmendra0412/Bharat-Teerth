@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import TempleCard from '../components/TempleCard';
 import { useLanguage } from '../context/LanguageContext';
+import { playTempleBell } from '../utils/audio';
+import { getCurrentAuspiciousDarshanPhase } from '../utils/timings';
 import { 
   Search, 
   MapPin, 
@@ -20,8 +22,106 @@ import {
   Clock,
   Star,
   TrendingUp,
-  Activity
+  Activity,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  Bell,
+  Sunrise,
+  Sun,
+  Moon,
+  ExternalLink
 } from 'lucide-react';
+
+const CINEMATIC_HERO_SHRINES = [
+  {
+    id: "kedarnath-temple",
+    name: "Kedarnath Dham",
+    hindi: "केदारनाथ धाम",
+    deity: "Lord Shiva (Sadashiva)",
+    state: "Uttarakhand",
+    elevation: "3,583 m (Garhwal Himalayas)",
+    circuit: "Char Dham • 12 Jyotirlingas",
+    tagline: "Highest of the sacred Twelve Jyotirlingas, perched amidst Himalayan glaciers and eternal snow.",
+    image: "/images/temples/kedarnath-temple.jpg"
+  },
+  {
+    id: "kashi-vishwanath",
+    name: "Kashi Vishwanath",
+    hindi: "काशी विश्वनाथ",
+    deity: "Lord Shiva (Vishweshwara)",
+    state: "Varanasi, Uttar Pradesh",
+    elevation: "Sacred Ganga Ghats",
+    circuit: "12 Jyotirlingas • Mokshapuri",
+    tagline: "The eternal golden city of light on sacred Ganga, where Lord Shiva grants liberation and divine supreme peace.",
+    image: "/images/temples/kashi-vishwanath.jpg"
+  },
+  {
+    id: "meenakshi-amman",
+    name: "Meenakshi Amman",
+    hindi: "मीनाक्षी सुन्दरेश्वरर",
+    deity: "Goddess Meenakshi & Sundareswarar",
+    state: "Madurai, Tamil Nadu",
+    elevation: "Vaigai River Plain",
+    circuit: "Dravidian Architectural Marvel",
+    tagline: "A colossal wonder of 14 monumental sculptured Gopurams and a Thousand-Pillar Hall holding millennia of living worship.",
+    image: "/images/temples/meenakshi-amman.jpg"
+  },
+  {
+    id: "somnath-jyotirlinga",
+    name: "Somnath Mahadev",
+    hindi: "सोमनाथ ज्योतिर्लिंग",
+    deity: "Lord Shiva (Someshwara)",
+    state: "Prabhas Patan, Gujarat",
+    elevation: "Arabian Sea Coastline",
+    circuit: "First of the 12 Jyotirlingas",
+    tagline: "The primal Jyotirlinga standing eternal on the shores of the Arabian Sea, representing the immortal spirit of Bharat.",
+    image: "/images/temples/somnath-jyotirlinga.jpg"
+  },
+  {
+    id: "brihadeeswarar-thanjavur",
+    name: "Brihadisvara Temple",
+    hindi: "बृहदीश्वर मन्दिर",
+    deity: "Lord Shiva (Peruvudaiyar)",
+    state: "Thanjavur, Tamil Nadu",
+    elevation: "Kaveri Delta Basin",
+    circuit: "UNESCO World Heritage Site",
+    tagline: "Raja Raja Chola I's granite wonder crowned with an 80-tonne monolithic Kumbam vimana that casts no shadow at midday.",
+    image: "/images/temples/brihadeeswarar-thanjavur.jpg"
+  },
+  {
+    id: "konark-sun-temple",
+    name: "Konark Sun Temple",
+    hindi: "कोणार्क सूर्य मन्दिर",
+    deity: "Surya Deva (Sun God)",
+    state: "Puri Coastline, Odisha",
+    elevation: "Bay of Bengal Coast",
+    circuit: "UNESCO World Heritage Site",
+    tagline: "13th-century colossal stone chariot with 24 intricately carved sundial wheels pulled by seven cosmic steeds.",
+    image: "/images/temples/konark-sun-temple.jpg"
+  },
+  {
+    id: "jagannath-puri",
+    name: "Jagannath Temple",
+    hindi: "श्री जगन्नाथ मन्दिर",
+    deity: "Lord Jagannath, Balabhadra, Subhadra",
+    state: "Puri, Odisha",
+    elevation: "Eastern Coast",
+    circuit: "Char Dham • Nilachala Dhama",
+    tagline: "Revered Purushottama Kshetra, sanctuary of Mahaprasad, the sacred Patitapavana flag, and the world-famed Ratha Yatra.",
+    image: "/images/temples/jagannath-puri.jpg"
+  }
+];
+
+const SACRED_CIRCUITS_QUICK = [
+  { name: "Char Dham", icon: "🕉️", count: 4, filter: "Char Dham" },
+  { name: "12 Jyotirlingas", icon: "🔱", count: 12, filter: "Jyotirlinga" },
+  { name: "51 Shakti Peethas", icon: "🌺", count: 51, filter: "Shakti Peetha" },
+  { name: "Pancha Bhoota", icon: "🌊", count: 5, filter: "Pancha Bhoota" },
+  { name: "Divya Desams", icon: "🛕", count: 108, filter: "Divya Desam" },
+  { name: "UNESCO Heritage", icon: "🏛️", count: 8, filter: "UNESCO" }
+];
 
 const REGIONS = [
   {
@@ -103,6 +203,43 @@ export default function HomePage({
   const [selectedState, setSelectedState] = useState('');
   const [selectedDeity, setSelectedDeity] = useState('');
 
+  // Cinematic Hero Carousel & Live Darshan state
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [darshanPhase, setDarshanPhase] = useState(() => getCurrentAuspiciousDarshanPhase());
+  const [bellRinging, setBellRinging] = useState(false);
+
+  // Auto-advance hero slideshow every 6.5s unless paused
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % CINEMATIC_HERO_SHRINES.length);
+    }, 6500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  // Real-time Darshan Phase update every 15s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDarshanPhase(getCurrentAuspiciousDarshanPhase());
+    }, 15000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleRingBell = () => {
+    setBellRinging(true);
+    playTempleBell();
+    setTimeout(() => setBellRinging(false), 2200);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % CINEMATIC_HERO_SHRINES.length);
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + CINEMATIC_HERO_SHRINES.length) % CINEMATIC_HERO_SHRINES.length);
+  };
+
   // Dynamically compute all 35 States & UTs covered in the database
   const allStates = useMemo(() => {
     if (metadata?.states?.length) return metadata.states;
@@ -135,234 +272,474 @@ export default function HomePage({
     setActiveTab('explore');
   };
 
-  const handleThemeClick = (themeName) => {
-    if (setFilterTheme) setFilterTheme(themeName);
+  const handleCircuitQuickTag = (circuitFilter) => {
+    if (setFilterTheme) setFilterTheme(circuitFilter);
     setActiveTab('explore');
   };
+
+  const currentShrine = CINEMATIC_HERO_SHRINES[currentSlide];
 
   return (
     <div className="space-y-16 pb-16">
       
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#2A0808] via-[#1A0B09] to-[#120605] text-white pt-16 pb-24 px-4 sm:px-6 lg:px-8 border-b-4 border-vedic-gold">
+      {/* ======================================================== */}
+      {/* CINEMATIC HERO SECTION: AMBIENT SHRINES & VEDIC BRANDING */}
+      {/* ======================================================== */}
+      <section 
+        className="relative overflow-hidden min-h-[720px] lg:min-h-[780px] bg-[#120605] text-white pt-10 pb-20 px-4 sm:px-6 lg:px-8 border-b-4 border-vedic-gold shadow-2xl flex flex-col justify-between"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         
-        {/* Subtle Decorative Background Mandala Pattern */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+        {/* Full-bleed Ambient Background Slideshow */}
+        <div className="absolute inset-0 z-0">
+          {CINEMATIC_HERO_SHRINES.map((shrine, index) => (
+            <div
+              key={shrine.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            >
+              <img
+                src={shrine.image}
+                alt={shrine.name}
+                className="w-full h-full object-cover object-center animate-subtle-zoom filter brightness-[0.42] contrast-[1.12]"
+                loading={index === 0 ? "eager" : "lazy"}
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = '/images/temples/somnath-jyotirlinga.jpg';
+                }}
+              />
+            </div>
+          ))}
 
-        <div className="relative max-w-5xl mx-auto text-center space-y-8">
+          {/* Majestic Vedic Dark Gradient Overlays */}
+          <div className="absolute inset-0 z-20 bg-gradient-to-b from-[#1A0B09]/95 via-[#120605]/80 to-[#120605] pointer-events-none" />
+          <div className="absolute inset-0 z-20 bg-radial-gradient pointer-events-none opacity-40 bg-[radial-gradient(circle_at_center,_transparent_0%,_#120605_85%)]" />
           
-          {/* Top Sanskrit Invocation */}
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-vedic-gold/15 border border-vedic-gold/40 text-vedic-goldLight text-xs tracking-wider font-semibold">
-            <span className="font-serif">ॐ</span>
-            <span>{t('heroTitle')} • Bharat Teerth Sacred Portal</span>
-          </div>
-
-          {/* Main Title */}
-          <div className="space-y-4">
-            <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
-              {t('heroTitle')} <br />
-              <span className="bg-gradient-to-r from-vedic-gold via-amber-200 to-vedic-saffron text-transparent bg-clip-text">
-                {t('portalName')}
-              </span>
-            </h1>
-            <p className="max-w-3xl mx-auto text-stone-300 text-sm sm:text-base font-normal leading-relaxed">
-              {t('heroSubtitle')}
-            </p>
-          </div>
-
-          {/* Real-World Quick Search & Discovery Box */}
-          <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-2xl border border-vedic-gold/50 text-stone-900">
-            <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
-              
-              {/* Search text */}
-              <div className="sm:col-span-4 relative">
-                <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-stone-400" />
-                <input
-                  type="text"
-                  placeholder={t('searchPlaceholder')}
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white"
-                />
-              </div>
-
-              {/* State dropdown */}
-              <div className="sm:col-span-3">
-                <select
-                  value={selectedState}
-                  onChange={(e) => setSelectedState(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-700 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white"
-                >
-                  <option value="">All States ({allStates.length || 35})</option>
-                  {(allStates.length > 0 ? allStates : POPULAR_STATES).map(s => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Deity filter */}
-              <div className="sm:col-span-3">
-                <select
-                  value={selectedDeity}
-                  onChange={(e) => setSelectedDeity(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-700 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white truncate"
-                >
-                  <option value="">All Deities ({allDeities.length || 118})</option>
-                  {allDeities.map(d => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Submit Button */}
-              <div className="sm:col-span-2">
-                <button
-                  type="submit"
-                  className="w-full h-full py-2.5 px-4 bg-gradient-to-r from-vedic-saffron to-vedic-saffronDark hover:from-vedic-saffronDark hover:to-vedic-maroon text-white font-semibold rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-vedic-saffron/30 flex items-center justify-center space-x-1"
-                >
-                  <span>Search</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-
-            </form>
-
-            {/* Quick State Chips */}
-            <div className="mt-3 pt-3 border-t border-stone-100 flex flex-wrap items-center justify-center gap-1.5 text-xs text-stone-600">
-              <span className="font-semibold text-stone-500 mr-1">Popular States:</span>
-              {(allStates.length > 0 ? allStates.slice(0, 10) : POPULAR_STATES).map(st => (
-                <button
-                  key={st}
-                  type="button"
-                  onClick={() => handleStateChipClick(st)}
-                  className="px-2.5 py-0.5 rounded-full bg-stone-100 hover:bg-vedic-goldLight hover:text-vedic-maroon border border-stone-200 transition-colors text-[11px]"
-                >
-                  {st}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Official Key Performance Indicators (KPIs) Strip */}
-          <div className="pt-6 max-w-5xl mx-auto space-y-3">
-            <div className="flex items-center justify-center space-x-2 text-vedic-goldLight text-xs font-semibold uppercase tracking-wider">
-              <TrendingUp className="w-3.5 h-3.5 text-vedic-gold" />
-              <span>{t('kpiSectionTitle')}</span>
-              <span className="text-stone-500">•</span>
-              <span className="text-stone-300 normal-case font-normal hidden sm:inline">{t('kpiSectionSubtitle')}</span>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 text-left">
-              
-              {/* KPI 1: Number of Temples Listed */}
-              <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/30 backdrop-blur-md hover:border-vedic-gold transition-all duration-200 group">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-vedic-gold/20 flex items-center justify-center text-vedic-goldLight">
-                    <Layers className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                    {stats.statesCovered || 35} States & UTs
-                  </span>
-                </div>
-                <div className="font-serif font-black text-2xl text-white group-hover:text-vedic-goldLight transition-colors">
-                  {stats.kpis?.templesListed?.displayValue || stats.totalTemples || 972}
-                </div>
-                <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
-                  {t('kpiTemplesListed')}
-                </div>
-                <div className="text-[10px] text-stone-400 mt-0.5 flex items-center gap-1">
-                  <span>{t('kpiTemplesListedSub')}</span>
-                </div>
-              </div>
-
-              {/* KPI 2: Monthly Active Users */}
-              <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/30 backdrop-blur-md hover:border-vedic-gold transition-all duration-200 group">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-300">
-                    <Users className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">
-                    Active Sessions
-                  </span>
-                </div>
-                <div className="font-serif font-black text-2xl text-white group-hover:text-sky-200 transition-colors">
-                  {stats.kpis?.monthlyActiveUsers?.displayValue || '1'}
-                </div>
-                <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
-                  {t('kpiMonthlyActiveUsers')}
-                </div>
-                <div className="text-[10px] text-stone-400 mt-0.5">
-                  {t('kpiMonthlyActiveUsersSub')}
-                </div>
-              </div>
-
-              {/* KPI 3: Search Success Rate */}
-              <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/30 backdrop-blur-md hover:border-vedic-gold transition-all duration-200 group">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-300">
-                    <Search className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    {stats.kpis?.searchSuccessRate?.avgLatencyMs || 42}ms latency
-                  </span>
-                </div>
-                <div className="font-serif font-black text-2xl text-white group-hover:text-amber-200 transition-colors">
-                  {stats.kpis?.searchSuccessRate?.displayValue || '100%'}
-                </div>
-                <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
-                  {t('kpiSearchSuccessRate')}
-                </div>
-                <div className="text-[10px] text-stone-400 mt-0.5">
-                  {t('kpiSearchSuccessRateSub')}
-                </div>
-              </div>
-
-              {/* KPI 4: Page Engagement Time */}
-              <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/30 backdrop-blur-md hover:border-vedic-gold transition-all duration-200 group">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-300">
-                    <Clock className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                    Avg Session
-                  </span>
-                </div>
-                <div className="font-serif font-black text-2xl text-white group-hover:text-rose-200 transition-colors">
-                  {stats.kpis?.pageEngagementTime?.displayValue || '4m 00s'}
-                </div>
-                <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
-                  {t('kpiPageEngagement')}
-                </div>
-                <div className="text-[10px] text-stone-400 mt-0.5">
-                  {t('kpiPageEngagementSub')}
-                </div>
-              </div>
-
-              {/* KPI 5: User Satisfaction Score */}
-              <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/30 backdrop-blur-md hover:border-vedic-gold transition-all duration-200 col-span-2 lg:col-span-1 group">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300">
-                    <Star className="w-3.5 h-3.5 fill-emerald-300" />
-                  </div>
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                    {stats.kpis?.userSatisfactionScore?.totalRatings || stats.totalPilgrimTips || 4} Reviews
-                  </span>
-                </div>
-                <div className="font-serif font-black text-2xl text-emerald-400 group-hover:text-emerald-300 transition-colors">
-                  {stats.kpis?.userSatisfactionScore?.displayValue || '5.0 / 5.0'}
-                </div>
-                <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
-                  {t('kpiSatisfactionScore')}
-                </div>
-                <div className="text-[10px] text-stone-400 mt-0.5">
-                  {t('kpiSatisfactionScoreSub')}
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+          {/* Subtle Sacred Mandala Background Dot Grid */}
+          <div className="absolute inset-0 z-20 opacity-15 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none" />
         </div>
+
+        {/* Top Auspicious Invocation & Live Darshan Ticker */}
+        <div className="relative z-30 max-w-6xl mx-auto w-full space-y-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-vedic-gold/25 pb-3">
+            
+            {/* Sanskrit Shloka & Official Verified Tag */}
+            <div className="flex items-center space-x-2 text-vedic-goldLight text-xs tracking-wider font-semibold text-center sm:text-left">
+              <span className="text-vedic-gold font-serif text-base animate-pulse">ॐ</span>
+              <span className="font-serif italic text-white/90">असतो मा सद्गमय तमसो मा ज्योतिर्गमय</span>
+              <span className="hidden md:inline text-vedic-gold/60">•</span>
+              <span className="hidden md:inline text-vedic-gold text-[11px] font-sans font-bold">
+                ASI & State Devasthanams Verified
+              </span>
+            </div>
+
+            {/* Live Pan-India Darshan Status Pill */}
+            <div className="flex items-center space-x-2 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-vedic-gold/30 shadow-inner">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-sm">{darshanPhase.icon}</span>
+              <span className="text-xs font-semibold text-vedic-goldLight">
+                {darshanPhase.phase}
+              </span>
+              <span className="text-[11px] font-mono text-white/70">
+                (IST {darshanPhase.istTime})
+              </span>
+              <button
+                onClick={handleRingBell}
+                title="Ring the sacred temple bell"
+                className={`ml-1 flex items-center space-x-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase transition-all border ${
+                  bellRinging
+                    ? 'bg-vedic-gold text-vedic-maroon border-white scale-105 shadow-md'
+                    : 'bg-white/10 hover:bg-white/20 text-vedic-gold border-white/20'
+                }`}
+              >
+                <Bell className={`w-3 h-3 ${bellRinging ? 'animate-bounce text-vedic-maroon' : 'text-vedic-gold'}`} />
+                <span className="hidden lg:inline">{bellRinging ? 'Ringing...' : 'Ring Bell'}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Central Hero Branding & Dynamic Spotlight */}
+        <div className="relative z-30 max-w-6xl mx-auto w-full my-auto py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left 7 Columns: Majestic Title, Mission & Search Box */}
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+              
+              <div className="space-y-3">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-vedic-gold/15 border border-vedic-gold/40 text-vedic-goldLight text-xs tracking-wider font-semibold">
+                  <Sparkles className="w-3.5 h-3.5 text-vedic-gold" />
+                  <span>National Digital Heritage Repository</span>
+                  <span className="text-white/60">•</span>
+                  <span className="text-white/90">972 Temples Across 35 States & UTs</span>
+                </div>
+
+                <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+                  {t('heroTitle')} <br />
+                  <span className="bg-gradient-to-r from-vedic-gold via-amber-200 to-vedic-saffron text-transparent bg-clip-text drop-shadow-[0_4px_16px_rgba(212,175,55,0.35)]">
+                    {t('portalName')}
+                  </span>
+                </h1>
+
+                <p className="text-stone-300 text-xs sm:text-sm lg:text-base font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  {t('heroSubtitle')}
+                </p>
+              </div>
+
+              {/* Glassmorphic Search & Discovery Box */}
+              <div className="bg-[#1A0B09]/85 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-2xl border border-vedic-gold/40 text-stone-900 ring-1 ring-vedic-gold/20">
+                <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+                  
+                  {/* Search text */}
+                  <div className="sm:col-span-5 relative">
+                    <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-stone-400" />
+                    <input
+                      type="text"
+                      placeholder={t('searchPlaceholder')}
+                      value={searchInput}
+                      onChange={(e) => setSearchInput(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2.5 bg-stone-50/95 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white"
+                    />
+                  </div>
+
+                  {/* State dropdown */}
+                  <div className="sm:col-span-3">
+                    <select
+                      value={selectedState}
+                      onChange={(e) => setSelectedState(e.target.value)}
+                      className="w-full px-3 py-2.5 bg-stone-50/95 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white truncate"
+                    >
+                      <option value="">All States ({allStates.length || 35})</option>
+                      {(allStates.length > 0 ? allStates : POPULAR_STATES).map(s => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Deity dropdown */}
+                  <div className="sm:col-span-2">
+                    <select
+                      value={selectedDeity}
+                      onChange={(e) => setSelectedDeity(e.target.value)}
+                      className="w-full px-2.5 py-2.5 bg-stone-50/95 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-vedic-saffron focus:bg-white truncate"
+                    >
+                      <option value="">Deities ({allDeities.length || 118})</option>
+                      {allDeities.map(d => (
+                        <option key={d} value={d}>{d}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="sm:col-span-2">
+                    <button
+                      type="submit"
+                      className="w-full h-full py-2.5 px-3 bg-gradient-to-r from-vedic-saffron via-amber-600 to-vedic-maroon hover:from-amber-600 hover:to-vedic-maroon text-white font-bold rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-vedic-saffron/30 flex items-center justify-center space-x-1 group"
+                    >
+                      <span>Search</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                  </div>
+
+                </form>
+
+                {/* Quick Sacred Circuit Tags */}
+                <div className="mt-3 pt-3 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-xs text-stone-300">
+                  <span className="font-semibold text-vedic-goldLight text-[11px] mr-1 flex items-center space-x-1">
+                    <Compass className="w-3 h-3 text-vedic-gold" />
+                    <span>Sacred Circuits:</span>
+                  </span>
+                  {SACRED_CIRCUITS_QUICK.map(circ => (
+                    <button
+                      key={circ.name}
+                      type="button"
+                      onClick={() => handleCircuitQuickTag(circ.filter)}
+                      className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon border border-white/15 hover:border-vedic-gold transition-all text-[11px] font-medium text-white flex items-center space-x-1 shadow-sm"
+                    >
+                      <span>{circ.icon}</span>
+                      <span>{circ.name}</span>
+                      <span className="text-[10px] opacity-75 font-mono">({circ.count})</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Popular State Quick Filters */}
+                <div className="mt-2 flex flex-wrap items-center justify-center lg:justify-start gap-1 text-[11px] text-stone-400">
+                  <span className="text-vedic-gold/80 font-medium mr-1">Popular States:</span>
+                  {(allStates.length > 0 ? allStates.slice(0, 8) : POPULAR_STATES.slice(0, 8)).map(st => (
+                    <button
+                      key={st}
+                      type="button"
+                      onClick={() => handleStateChipClick(st)}
+                      className="px-2 py-0.5 rounded text-[10px] text-stone-300 hover:text-vedic-gold hover:underline transition-colors"
+                    >
+                      {st}
+                    </button>
+                  ))}
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Right 5 Columns: Interactive Cinematic Spotlight Shrine Showcase */}
+            <div className="lg:col-span-5">
+              <div className="relative bg-gradient-to-b from-[#1A0B09]/90 to-[#120605]/95 rounded-2xl border border-vedic-gold/40 p-5 shadow-2xl backdrop-blur-xl space-y-4 ring-1 ring-vedic-gold/30">
+                
+                {/* Spotlight Header with Live Badge & Controls */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full bg-vedic-saffron/20 border border-vedic-saffron/40 text-vedic-saffronLight text-[10px] font-bold uppercase tracking-wider">
+                      <Sparkles className="w-3 h-3 text-vedic-gold" />
+                      <span>Heritage Spotlight</span>
+                    </span>
+                    <span className="text-[11px] text-vedic-gold font-mono">
+                      {String(currentSlide + 1).padStart(2, '0')} / {String(CINEMATIC_HERO_SHRINES.length).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Navigation & Pause Controls */}
+                  <div className="flex items-center space-x-1">
+                    <button
+                      onClick={handlePrevSlide}
+                      className="p-1 rounded-lg bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon text-white transition-colors"
+                      title="Previous spotlight shrine"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setIsPaused(!isPaused)}
+                      className="p-1 rounded-lg bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon text-white transition-colors"
+                      title={isPaused ? "Play slideshow" : "Pause slideshow"}
+                    >
+                      {isPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
+                    </button>
+                    <button
+                      onClick={handleNextSlide}
+                      className="p-1 rounded-lg bg-white/10 hover:bg-vedic-gold hover:text-vedic-maroon text-white transition-colors"
+                      title="Next spotlight shrine"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Shrine Preview Image Container */}
+                <div 
+                  onClick={() => onSelectTemple(currentShrine.id)}
+                  className="relative h-48 w-full rounded-xl overflow-hidden border border-vedic-gold/30 cursor-pointer group shadow-lg"
+                >
+                  <img
+                    src={currentShrine.image}
+                    alt={currentShrine.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = '/images/temples/somnath-jyotirlinga.jpg';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+                  
+                  {/* Overlay Badges */}
+                  <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
+                    <span className="px-2 py-0.5 rounded-full bg-vedic-maroon/90 text-vedic-goldLight text-[10px] font-semibold backdrop-blur-sm border border-vedic-gold/40">
+                      {currentShrine.circuit}
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-black/70 text-white text-[10px] font-medium backdrop-blur-sm">
+                      {currentShrine.elevation}
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-end justify-between">
+                    <div>
+                      <div className="text-[11px] text-vedic-goldLight font-serif italic">
+                        {currentShrine.hindi}
+                      </div>
+                      <div className="font-serif font-black text-xl text-white group-hover:text-vedic-goldLight transition-colors">
+                        {currentShrine.name}
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-vedic-gold text-vedic-maroon text-xs font-bold shadow group-hover:bg-white transition-colors">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </div>
+                </div>
+
+                {/* Shrine Metadata & Tagline */}
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between text-stone-300">
+                    <div className="flex items-center space-x-1 text-vedic-goldLight">
+                      <MapPin className="w-3.5 h-3.5 text-vedic-saffron" />
+                      <span className="font-semibold">{currentShrine.state}</span>
+                    </div>
+                    <div className="text-stone-300 font-medium">
+                      Deity: <span className="text-white font-semibold">{currentShrine.deity}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-stone-300 text-[11px] leading-relaxed line-clamp-2">
+                    {currentShrine.tagline}
+                  </p>
+                </div>
+
+                {/* Direct Action Button */}
+                <button
+                  onClick={() => onSelectTemple(currentShrine.id)}
+                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-vedic-gold/20 via-vedic-saffron/30 to-vedic-gold/20 hover:from-vedic-gold hover:to-amber-500 text-vedic-goldLight hover:text-vedic-maroon font-bold text-xs border border-vedic-gold/40 hover:border-white transition-all duration-200 flex items-center justify-center space-x-1.5 shadow"
+                >
+                  <BookOpen className="w-3.5 h-3.5" />
+                  <span>View Sthala Purana, Timings & Darshan Details</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+
+                {/* Slide Indicator Dots */}
+                <div className="flex items-center justify-center space-x-1.5 pt-1">
+                  {CINEMATIC_HERO_SHRINES.map((shrine, idx) => (
+                    <button
+                      key={shrine.id}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        idx === currentSlide
+                          ? 'w-7 bg-vedic-gold shadow-sm shadow-vedic-gold/50'
+                          : 'w-2 bg-white/20 hover:bg-white/40'
+                      }`}
+                      title={shrine.name}
+                    />
+                  ))}
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bottom Official Key Performance Indicators (KPIs) Strip */}
+        <div className="relative z-30 pt-6 max-w-6xl mx-auto w-full space-y-3">
+          <div className="flex items-center justify-center space-x-2 text-vedic-goldLight text-xs font-semibold uppercase tracking-wider">
+            <TrendingUp className="w-3.5 h-3.5 text-vedic-gold" />
+            <span>{t('kpiSectionTitle')}</span>
+            <span className="text-stone-500">•</span>
+            <span className="text-stone-300 normal-case font-normal hidden sm:inline">{t('kpiSectionSubtitle')}</span>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 text-left">
+            
+            {/* KPI 1: Number of Temples Listed */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-vedic-gold hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="w-7 h-7 rounded-lg bg-vedic-gold/20 flex items-center justify-center text-vedic-goldLight">
+                  <Layers className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  {stats.statesCovered || 35} States & UTs
+                </span>
+              </div>
+              <div className="font-serif font-black text-2xl text-white group-hover:text-vedic-goldLight transition-colors">
+                {stats.kpis?.templesListed?.displayValue || stats.totalTemples || 972}
+              </div>
+              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+                {t('kpiTemplesListed')}
+              </div>
+              <div className="text-[10px] text-stone-400 mt-0.5 flex items-center gap-1">
+                <span>{t('kpiTemplesListedSub')}</span>
+              </div>
+            </div>
+
+            {/* KPI 2: Monthly Active Users */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-sky-400 hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-300">
+                  <Users className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                  Active Sessions
+                </span>
+              </div>
+              <div className="font-serif font-black text-2xl text-white group-hover:text-sky-200 transition-colors">
+                {stats.kpis?.monthlyActiveUsers?.displayValue || '1'}
+              </div>
+              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+                {t('kpiMonthlyActiveUsers')}
+              </div>
+              <div className="text-[10px] text-stone-400 mt-0.5">
+                {t('kpiMonthlyActiveUsersSub')}
+              </div>
+            </div>
+
+            {/* KPI 3: Search Success Rate */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="w-7 h-7 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-300">
+                  <Search className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  {stats.kpis?.searchSuccessRate?.avgLatencyMs || 42}ms latency
+                </span>
+              </div>
+              <div className="font-serif font-black text-2xl text-white group-hover:text-amber-200 transition-colors">
+                {stats.kpis?.searchSuccessRate?.displayValue || '100%'}
+              </div>
+              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+                {t('kpiSearchSuccessRate')}
+              </div>
+              <div className="text-[10px] text-stone-400 mt-0.5">
+                {t('kpiSearchSuccessRateSub')}
+              </div>
+            </div>
+
+            {/* KPI 4: Page Engagement Time */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-rose-400 hover:-translate-y-0.5 transition-all duration-200 group shadow-lg">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="w-7 h-7 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-300">
+                  <Clock className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                  Avg Session
+                </span>
+              </div>
+              <div className="font-serif font-black text-2xl text-white group-hover:text-rose-200 transition-colors">
+                {stats.kpis?.pageEngagementTime?.displayValue || '4m 00s'}
+              </div>
+              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+                {t('kpiPageEngagement')}
+              </div>
+              <div className="text-[10px] text-stone-400 mt-0.5">
+                {t('kpiPageEngagementSub')}
+              </div>
+            </div>
+
+            {/* KPI 5: User Satisfaction Score */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-vedic-gold/40 backdrop-blur-md hover:border-emerald-400 hover:-translate-y-0.5 transition-all duration-200 col-span-2 lg:col-span-1 group shadow-lg">
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300">
+                  <Star className="w-3.5 h-3.5 fill-emerald-300" />
+                </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  {stats.kpis?.userSatisfactionScore?.totalRatings || stats.totalPilgrimTips || 4} Reviews
+                </span>
+              </div>
+              <div className="font-serif font-black text-2xl text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                {stats.kpis?.userSatisfactionScore?.displayValue || '5.0 / 5.0'}
+              </div>
+              <div className="text-xs font-semibold text-stone-200 mt-0.5 leading-snug">
+                {t('kpiSatisfactionScore')}
+              </div>
+              <div className="text-[10px] text-stone-400 mt-0.5">
+                {t('kpiSatisfactionScoreSub')}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </section>
 
       {/* Incredible India Inspired: Explore by Geographical Region */}

@@ -46,6 +46,18 @@
   line-height: 1.4;
 }
 
+/* Subtle Cinematic Ken-Burns Ambient Zoom */
+@keyframes subtleZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.animate-subtle-zoom {
+  animation: subtleZoom 22s ease-in-out infinite alternate;
+}
+
+
 /* Print Styles for Pilgrimage Itineraries */
 @media print {
   header, footer, nav, button, .no-print {

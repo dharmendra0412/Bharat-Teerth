@@ -40,3 +40,68 @@ export function getDarshanStatus(generalTimingsStr) {
   return { isOpen: false, statusText: "Closed for Night • Opens at 05:30 AM", color: "stone" };
 }
 
+// Returns the live pan-Indian Vedic Darshan phase based on current Indian Standard Time (IST)
+export function getCurrentAuspiciousDarshanPhase() {
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const ist = new Date(utc + (3600000 * 5.5));
+  const hours = ist.getHours();
+  const minutes = ist.getMinutes();
+  const currentMin = hours * 60 + minutes;
+
+  const timeFormatted = ist.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
+  if (currentMin >= 300 && currentMin < 480) { // 5:00 AM - 8:00 AM
+    return {
+      phase: 'Mangala & Ushahkala Aarti',
+      sanskrit: 'मङ्गल आरती • उषाःकाल दर्शन',
+      description: 'Morning Awakening & Nirmalya Darshan',
+      icon: '🌅',
+      status: 'Auspicious Morning Pooja in Progress',
+      color: 'emerald',
+      istTime: timeFormatted
+    };
+  } else if (currentMin >= 480 && currentMin < 750) { // 8:00 AM - 12:30 PM
+    return {
+      phase: 'Madhyana Pooja & Rajbhog',
+      sanskrit: 'मध्याह्न पूजा • राजभोग दर्शन',
+      description: 'Grand Midday Abhishekam & Annadanam Darshan',
+      icon: '☀️',
+      status: 'Open for Sarva Darshanam across Subcontinent',
+      color: 'emerald',
+      istTime: timeFormatted
+    };
+  } else if (currentMin >= 750 && currentMin < 960) { // 12:30 PM - 4:00 PM
+    return {
+      phase: 'Aparahna Vishram',
+      sanskrit: 'अपराह्न विश्राम • कपाट विश्राम',
+      description: 'Afternoon Sanctum Rest (Sanctuaries reopen at 4:00 PM)',
+      icon: '🛕',
+      status: 'Sanctum Afternoon Rest (Reopens 4 PM)',
+      color: 'amber',
+      istTime: timeFormatted
+    };
+  } else if (currentMin >= 960 && currentMin < 1230) { // 4:00 PM - 8:30 PM
+    return {
+      phase: 'Sandhya Aarti & Deeparadhana',
+      sanskrit: 'सन्ध्या आरती • दीपाराधना',
+      description: 'Sacred Twilight Lamp Darshan & Dhoop Seva',
+      icon: '🪔',
+      status: 'Evening Aarti in Progress across Sanctuaries',
+      color: 'emerald',
+      istTime: timeFormatted
+    };
+  } else { // 8:30 PM - 5:00 AM
+    return {
+      phase: 'Shayan Aarti & Ekanta Seva',
+      sanskrit: 'शयन आरती • एकान्त सेवा',
+      description: 'Sanctum Slumber Ritual (Re-awakens at 5:00 AM)',
+      icon: '🌙',
+      status: 'Night Rest • Sanctum Re-awakens at 5:00 AM',
+      color: 'stone',
+      istTime: timeFormatted
+    };
+  }
+}
+
+
