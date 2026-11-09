@@ -4,12 +4,8 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { playTempleBell } from '../utils/audio';
 import { 
-  Compass, 
-  MapPin, 
-  Map as MapIcon, 
   Bookmark, 
   ShieldCheck, 
-  BookOpen, 
   Menu, 
   X, 
   User, 
@@ -54,11 +50,11 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
   return (
     <header className="sticky top-0 z-50 bg-[#FBF8F3]/95 backdrop-blur-md border-b border-[#E8DFC8] shadow-sm transition-all">
       
-      {/* 1. Top Auspicious Cultural Ribbon */}
+      {/* 1. Top Cultural Ribbon */}
       <div className="bg-[#6B121C] text-[#F9E8B2] text-xs py-1.5 px-4 sm:px-6 lg:px-8 font-medium tracking-wide border-b border-[#520B13]">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
-          {/* Sanskrit Invocation & Subtitle */}
+          {/* Invocation */}
           <div className="flex items-center space-x-2 truncate">
             <span className="text-amber-300 font-serif text-sm">ॐ</span>
             <span className="truncate font-serif italic text-amber-100/90 text-[11px] sm:text-xs">
@@ -66,10 +62,8 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
             </span>
           </div>
 
-          {/* Right Cultural Actions & Telemetry */}
+          {/* Right Actions */}
           <div className="flex items-center space-x-3 text-[11px] text-amber-200 shrink-0">
-            
-            {/* Sacred Bell Ring Action */}
             <button
               onClick={handleRingBell}
               className={`flex items-center space-x-1 px-2.5 py-0.5 rounded-full transition-all border ${
@@ -100,114 +94,108 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
         </div>
       </div>
 
-      {/* 2. Main Professional Navigation Bar */}
+      {/* 2. Main Streamlined Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-2">
           
-          {/* Logo & Brand Identity Lockup */}
+          {/* Logo & Identity */}
           <div 
             onClick={() => handleNavClick('home')}
-            className="flex items-center space-x-3 cursor-pointer group shrink-0"
+            className="flex items-center space-x-2.5 cursor-pointer group shrink-0"
           >
-            {/* Custom Architectural Vector Temple Crest */}
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#781822] via-[#8C1D2B] to-[#D35400] p-0.5 shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center">
-              <div className="w-full h-full bg-[#520B13] rounded-[10px] flex items-center justify-center text-amber-200">
-                <svg className="w-5 h-5 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#781822] to-[#D35400] p-0.5 shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center">
+              <div className="w-full h-full bg-[#520B13] rounded-[10px] flex items-center justify-center">
+                <svg className="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2v3M9 5h6M12 5l-5 6h10l-5-6zM6 11l-2 5h16l-2-5M4 16v6h16v-6M9 22v-4a3 3 0 0 1 6 0v4" />
                 </svg>
               </div>
             </div>
 
-            {/* Typography Lockup */}
             <div className="flex flex-col">
-              <div className="flex items-center space-x-2">
-                <span className="font-serif font-black text-lg tracking-wider text-[#781822] leading-none">
+              <div className="flex items-center space-x-1.5">
+                <span className="font-serif font-black text-base text-[#781822] tracking-wide leading-none">
                   BHARAT TEERTH
                 </span>
-                <span className="text-[9px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider bg-amber-100/90 text-[#781822] border border-amber-300/80">
+                <span className="text-[9px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider bg-amber-100 text-[#781822] border border-amber-300/80">
                   Incredible India
                 </span>
               </div>
-              <span className="text-[10px] text-stone-500 font-medium tracking-wide mt-0.5 whitespace-nowrap">
-                India Temple Heritage & Pilgrimage Portal
+              <span className="text-[10px] text-stone-500 font-medium tracking-wide mt-0.5 whitespace-nowrap hidden sm:block">
+                National Temple Heritage Portal
               </span>
             </div>
           </div>
 
-          {/* Desktop Navigation Links (Single-Line, Non-wrapping) */}
-          <nav className="hidden xl:flex items-center space-x-1">
+          {/* Clean Desktop Navigation Links (Title Case, Single Line) */}
+          <nav className="hidden lg:flex items-center space-x-1">
             <button
               onClick={() => handleNavClick('home')}
-              className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                 activeTab === 'home'
-                  ? 'bg-[#781822] text-[#F9E8B2] shadow-sm'
+                  ? 'bg-[#781822] text-[#F9E8B2] font-bold shadow-sm'
                   : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              {t('navHome')}
+              Home
             </button>
 
             <button
               onClick={() => handleNavClick('explore')}
-              className={`whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                 activeTab === 'explore'
-                  ? 'bg-[#781822] text-[#F9E8B2] shadow-sm'
+                  ? 'bg-[#781822] text-[#F9E8B2] font-bold shadow-sm'
                   : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <Compass className="w-3.5 h-3.5" />
-              <span>{t('navExplore')}</span>
+              Explore Temples
             </button>
 
             <button
               onClick={() => handleNavClick('circuits')}
-              className={`whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                 activeTab === 'circuits'
-                  ? 'bg-[#781822] text-[#F9E8B2] shadow-sm'
+                  ? 'bg-[#781822] text-[#F9E8B2] font-bold shadow-sm'
                   : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <MapPin className="w-3.5 h-3.5" />
-              <span>{t('navCircuits')}</span>
+              Pilgrimage Circuits
             </button>
 
             <button
               onClick={() => handleNavClick('map')}
-              className={`whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                 activeTab === 'map'
-                  ? 'bg-[#781822] text-[#F9E8B2] shadow-sm'
+                  ? 'bg-[#781822] text-[#F9E8B2] font-bold shadow-sm'
                   : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <MapIcon className="w-3.5 h-3.5" />
-              <span>{t('navMap')}</span>
+              Interactive Map
             </button>
 
             <button
               onClick={() => handleNavClick('guidelines')}
-              className={`whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                 activeTab === 'guidelines'
-                  ? 'bg-[#781822] text-[#F9E8B2] shadow-sm'
+                  ? 'bg-[#781822] text-[#F9E8B2] font-bold shadow-sm'
                   : 'text-stone-700 hover:text-[#781822] hover:bg-[#F2EADB]'
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>{t('navGuidelines')}</span>
+              Guidelines
             </button>
           </nav>
 
-          {/* Action Cluster (Language + My Yatra + Admin) */}
-          <div className="hidden lg:flex items-center space-x-2 shrink-0">
+          {/* Action Cluster (Fits Cleanly with zero overflow) */}
+          <div className="hidden md:flex items-center space-x-2 shrink-0">
             
-            {/* Multilingual Selector Dropdown */}
+            {/* Language Selector */}
             <div className="relative" ref={langDropdownRef}>
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="whitespace-nowrap flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-[#D5C6A9] bg-white hover:bg-[#FAF6EC] text-xs font-bold text-stone-800 shadow-sm transition-all"
+                className="whitespace-nowrap flex items-center space-x-1 px-2.5 py-1.5 rounded-lg border border-[#D5C6A9] bg-white hover:bg-[#FAF6EC] text-xs font-semibold text-stone-800 shadow-sm transition-all"
                 title="Change language"
               >
                 <Globe className="w-3.5 h-3.5 text-[#D35400]" />
-                <span>{currentLangInfo.flag} {currentLangInfo.native}</span>
+                <span>{currentLangInfo.native}</span>
                 <ChevronDown className="w-3 h-3 text-stone-400" />
               </button>
 
@@ -242,17 +230,17 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
               )}
             </div>
 
-            {/* My Yatra Planner Button */}
+            {/* My Yatra Planner */}
             <button
               onClick={() => handleNavClick('planner')}
-              className={`whitespace-nowrap relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+              className={`whitespace-nowrap relative flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
                 activeTab === 'planner'
                   ? 'bg-[#781822] text-[#F9E8B2] border-[#781822] shadow'
                   : 'bg-white text-[#781822] border-[#D5C6A9] hover:bg-[#FAF6EC]'
               }`}
             >
               <Bookmark className="w-3.5 h-3.5 text-[#C89B3C]" />
-              <span>{t('navYatra')}</span>
+              <span>My Yatra</span>
               {plannedTemples.length > 0 && (
                 <span className="w-4 h-4 rounded-full bg-[#D35400] text-white text-[10px] flex items-center justify-center font-bold">
                   {plannedTemples.length}
@@ -262,16 +250,16 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
 
             {/* Admin CMS Access */}
             {isAuthenticated ? (
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1.5 shrink-0">
                 <button
                   onClick={() => handleNavClick('admin')}
-                  className={`whitespace-nowrap flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                  className={`whitespace-nowrap flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
                     activeTab === 'admin'
                       ? 'bg-[#781822] text-white shadow'
                       : 'bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100'
                   }`}
                 >
-                  <User className="w-3.5 h-3.5" />
+                  <User className="w-3 h-3" />
                   <span>Admin</span>
                 </button>
                 <button
@@ -285,16 +273,16 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
             ) : (
               <button
                 onClick={() => handleNavClick('admin')}
-                className="whitespace-nowrap flex items-center space-x-1 px-3 py-1.5 text-xs font-bold text-stone-700 hover:text-[#781822] border border-[#D5C6A9] rounded-lg hover:border-[#781822] bg-white transition-all shadow-sm"
+                className="whitespace-nowrap flex items-center space-x-1 px-2.5 py-1.5 text-xs font-semibold text-stone-700 hover:text-[#781822] border border-[#D5C6A9] rounded-lg hover:border-[#781822] bg-white transition-all shadow-sm shrink-0"
               >
                 <LogIn className="w-3 h-3 text-[#D35400]" />
-                <span>{t('navAdmin')}</span>
+                <span>Admin</span>
               </button>
             )}
           </div>
 
-          {/* Mobile & Tablet Hamburger Toggle */}
-          <div className="flex xl:hidden items-center space-x-2">
+          {/* Mobile & Tablet Toggle */}
+          <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={() => handleNavClick('planner')}
               className="relative p-2 text-[#781822]"
@@ -320,7 +308,7 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
 
       {/* 3. Mobile & Tablet Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#FBF8F3] border-b border-[#E8DFC8] px-4 pt-2 pb-6 space-y-2 shadow-lg">
+        <div className="lg:hidden bg-[#FBF8F3] border-b border-[#E8DFC8] px-4 pt-2 pb-6 space-y-2 shadow-lg">
           
           {/* Mobile Language Switcher */}
           <div className="pb-3 border-b border-[#E8DFC8]">
@@ -352,55 +340,51 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
 
           <button
             onClick={() => handleNavClick('home')}
-            className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider ${
+            className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold ${
               activeTab === 'home' ? 'bg-[#781822] text-[#F9E8B2]' : 'hover:bg-[#F2EADB]'
             }`}
           >
-            {t('navHome')}
+            Home
           </button>
           <button
             onClick={() => handleNavClick('explore')}
-            className={`w-full flex items-center space-x-2 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider ${
+            className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold ${
               activeTab === 'explore' ? 'bg-[#781822] text-[#F9E8B2]' : 'hover:bg-[#F2EADB]'
             }`}
           >
-            <Compass className="w-4 h-4" />
-            <span>{t('navExplore')}</span>
+            Explore Temples
           </button>
           <button
             onClick={() => handleNavClick('circuits')}
-            className={`w-full flex items-center space-x-2 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider ${
+            className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold ${
               activeTab === 'circuits' ? 'bg-[#781822] text-[#F9E8B2]' : 'hover:bg-[#F2EADB]'
             }`}
           >
-            <MapPin className="w-4 h-4" />
-            <span>{t('navCircuits')}</span>
+            Pilgrimage Circuits
           </button>
           <button
             onClick={() => handleNavClick('map')}
-            className={`w-full flex items-center space-x-2 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider ${
+            className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold ${
               activeTab === 'map' ? 'bg-[#781822] text-[#F9E8B2]' : 'hover:bg-[#F2EADB]'
             }`}
           >
-            <MapIcon className="w-4 h-4" />
-            <span>{t('navMap')}</span>
+            Interactive Map
           </button>
           <button
             onClick={() => handleNavClick('guidelines')}
-            className={`w-full flex items-center space-x-2 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider ${
+            className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold ${
               activeTab === 'guidelines' ? 'bg-[#781822] text-[#F9E8B2]' : 'hover:bg-[#F2EADB]'
             }`}
           >
-            <BookOpen className="w-4 h-4" />
-            <span>{t('navGuidelines')}</span>
+            Guidelines
           </button>
           <button
             onClick={() => handleNavClick('planner')}
-            className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-amber-100 text-[#781822]"
+            className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold bg-amber-100 text-[#781822]"
           >
             <span className="flex items-center space-x-2">
               <Bookmark className="w-4 h-4" />
-              <span>{t('navYatra')}</span>
+              <span>My Yatra</span>
             </span>
             <span className="px-2 py-0.5 text-xs bg-[#781822] text-white rounded-full">
               {plannedTemples.length}
@@ -409,10 +393,10 @@ export default function Navbar({ activeTab, setActiveTab, onSelectTemple }) {
           <div className="pt-2 border-t border-[#E8DFC8]">
             <button
               onClick={() => handleNavClick('admin')}
-              className="w-full flex items-center space-x-2 px-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-amber-200/60 text-[#781822]"
+              className="w-full flex items-center space-x-2 px-3 py-2.5 rounded-lg text-xs font-bold bg-amber-200/60 text-[#781822]"
             >
               <User className="w-4 h-4" />
-              <span>{t('navAdmin')}</span>
+              <span>Admin Portal</span>
             </button>
           </div>
         </div>

@@ -352,8 +352,8 @@ export default function HomePage({
                   <span className="text-stone-700">972 Temples Across 35 States & UTs</span>
                 </div>
 
-                <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl text-[#781822] tracking-tight leading-[1.12]">
-                  DISCOVER THE SACRED SHRINES <br />
+                <h1 className="font-serif font-black text-3xl sm:text-4xl lg:text-5xl text-[#781822] tracking-tight leading-[1.18]">
+                  Discover the Sacred Shrines <br />
                   <span className="text-[#C27D00] font-playfair italic font-bold">
                     of Timeless Bharat
                   </span>
